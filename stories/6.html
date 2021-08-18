@@ -26,8 +26,8 @@
 <img id="load" src="images/sprite/back_menu.png" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
 <img id="load" src="images/sprite/top_menu.png" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
 <img id="load" src="images/sprite/skip_menu.png" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
-<img id="load" src="images/chara/ジャック.png" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
-<img id="load" src="images/chara/生きる木.png" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
+<img id="load" src="images/chara/jack.png" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
+<img id="load" src="images/chara/tree.png" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
 <img id="load" src="images/sprite/text_box.png" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
 <img id="load" src="images/bg/bg_black.png" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
 <img id="load" src="images/bg/yakushima.jpg" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
@@ -147,8 +147,8 @@ var story_page = 1
 var cname = "Name"
 var cmes = "mes"
 var cimg = "img.png"
-let ch_jack = "iamges/chara/ジャック.png"
-let ch_tree = "images/chara/生きる木.png"
+let ch_jack = "iamges/chara/jack.png"
+let ch_tree = "images/chara/tree.png"
 let ch_space = "images/chara/space.png"
 
 
@@ -168,7 +168,7 @@ function next1(){
     cmes = "この物語はフィクションです。<br>実在する人物・団体・場所とは一切関係ありません。"
     cimg = ch_space
     set_texts()
-    document.body.style.backgroundImage = 'url("bg_black.png")';
+    document.body.style.backgroundImage = 'url("images/bg/bg_black.png")';
 }
 function next2(){
 	story_page = story_page + 1

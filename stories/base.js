@@ -18,7 +18,7 @@ var cookie_name = arr['name'];
 
 if (cookie_game != 1){
     alert('内部エラーが発生しました。\nホームに戻ります。\n\nユーザーデータが読み込めませんでした。')
-    open( "/jlt/home.html", "_top" ) ;
+    open( "../home.html", "_top" ) ;
 }
 
 
