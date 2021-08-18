@@ -40,13 +40,13 @@ function menu_skip(){
 
 function set_texts(type){
     if(type == 0){
-        text_box.innerHTML = '<a href="javascript:exit()"><img src="text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
+        text_box.innerHTML = '<a href="javascript:exit()"><img src="images/sprite/text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
         character_image.innerHTML = '<img src="' + cimg + '" class="chara_image">'
     }else if(type == 1){
         text_box.innerHTML = ''
         character_image.innerHTML = ''
     }else{
-        text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
+        text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="images/sprite/text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
         character_image.innerHTML = '<img src="' + cimg + '" class="chara_image">'
     }
 }

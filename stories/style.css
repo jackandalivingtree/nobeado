@@ -1,6 +1,6 @@
 body {
     background-color: #777777;            /* 背景色 */
-    background-image: url("default_bg_image.png"); /* 画像 */
+    background-image: url("images/bg/default_bg_image.png"); /* 画像 */
     background-size: cover;               /* 全画面 */
     background-attachment: fixed;         /* 固定 */
     background-position: center center;   /* 縦横中央 */
