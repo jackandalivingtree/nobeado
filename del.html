@@ -1,0 +1,40 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-title" content="JLT GAME">
+<meta name="viewport" content="width=250">
+<title>ユーザー登録</title>
+<meta name="description" content="ジャックと生きる木がゲームなった！？">
+
+<script src="stories/no_scroll.js"></script>
+</head>
+<body>
+<center>
+<h3>初期化</h3>
+<h6>すべてのセーブデータを初期化出来ます。</h6>
+初期化してもよろしいですか？
+</br>
+<button onclick="delet()">初期化</button>
+<button onclick="location.href = 'home.html'">もどる</button>
+
+<script>
+function delet(){
+		f=confirm("すべてのデータを初期化してもよろしいですか？")
+		if(f == true){
+			document.cookie = 'start_game=1; max-age=0';
+			document.cookie = 'name=0; max-age=0';
+			document.cookie = 'gen=0; max-age=0';
+			alert('セーブデータの初期化を行いました。')
+			location.href = 'index.html'
+		}else{
+			location.href = 'home.html'
+		}
+	}
+
+</script>
+
+</body>
+</html>

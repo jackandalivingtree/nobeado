@@ -1,0 +1,135 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-title" content="JLT GAME">
+<meta name="viewport" content="width=350">
+<link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+<title>JLT</title>
+<meta name="description" content="ジャックと生きる木がゲームなった！？">
+<script src="no_scroll.js"></script>
+</head>
+<body>
+
+<center>
+<noscript>
+<h1>ブラウザの設定によってJavaScriptが無効になっています。</h1>
+</noscript>
+</center>
+
+<div class="texts" id="text_box"></div>
+<span id="character_image"><img src="space.png" class="chara_image"></span>
+<span id="menu_img"><a href="javascript:menu_open()"><img src="menu.png" class="menu_image"></a></span>
+
+<script src="base.js"></script>
+<link rel="stylesheet" href="style.css">
+
+<script>
+var story_page = 1
+var cname = "Name"
+var cmes = "mes"
+var cimg = "img.png"
+
+
+function next1(){
+    story_page = story_page + 1
+    cname = ""
+    cmes = "ついに…始まる…"
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
+    character_image.innerHTML = ''
+}
+
+function next2(){
+    story_page = story_page + 1
+    cname = "ジャック"
+    cmes = "ついに俺たちがゲームになるんだね！"
+    cimg = "ジャック.png"
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
+    character_image.innerHTML = '<img src="' + cimg + '" class="chara_image">'
+}
+
+function next3(){
+    story_page = story_page + 1
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">生きる木</p><p id="message" class="mes">遂にゲームになるんだ！</br>結構待ちくたびれたねー</p></a>'
+    character_image.innerHTML = '<img src="生きる木.png" class="chara_image">'
+}
+
+function next4(){
+    story_page = story_page + 1
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">屋久島</p><p id="message" class="mes">yakushima.jpg</p></a>'
+    character_image.innerHTML = '<img src="C777_yakushimanomori.jpg" class="chara_image">'
+}
+
+function next5(){
+    story_page = story_page + 1
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">ジャック</p><p id="message" class="mes">ああ！</br>早速バグっちゃてるよ！</p></a>'
+    character_image.innerHTML = '<img src="ジャック.png" class="chara_image">'
+}
+
+function next6(){
+    story_page = story_page + 1
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">生きる木</p><p id="message" class="mes">まぁ、バグは全部開発者に任せればいいんだよ。</br>優秀だからすぐに直してくれるよ。</p></a>'
+    character_image.innerHTML = '<img src="生きる木.png" class="chara_image">'
+}
+
+function next7(){
+    story_page = story_page + 1
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">SCRIPT_unknownData</p><p id="message" class="mes">AAAAAAAAAAAAAAA</p></a>'
+    character_image.innerHTML = '<img src="生きる木_text.png" class="chara_image">'
+}
+
+function next8(){
+    story_page = story_page + 1
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">ジャック</p><p id="message" class="mes">ちょ！</br>尋常じゃないくらいのバグり方してるよ!?</p></a>'
+    character_image.innerHTML = '<img src="ジャック.png" class="chara_image">'
+}
+
+function next9(){
+    story_page = story_page + 1
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">生きる木</p><p id="message" class="mes">うーん…</br>流石にこれはまずいね…</p></a>'
+    character_image.innerHTML = '<img src="生きる木.png" class="chara_image">'
+}
+
+function next10(){
+    story_page = story_page + 1
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">生きる木</p><p id="message" class="mes">後で開発者には説教だな。</br>覚えとけよ…？</p></a>'
+    character_image.innerHTML = '<img src="生きる木.png" class="chara_image">'
+}
+
+function next11(){
+    story_page = story_page + 1
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">ジャック</p><p id="message" class="mes">え、えっと…！</br>「ジャックと生きる木　のべあど！」</p></a>'
+    character_image.innerHTML = '<img src="ジャック.png" class="chara_image">'
+}
+
+function next12(){
+    story_page = story_page + 1
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">ジャック</p><p id="message" class="mes">開発難航につき、ストーリー開発一旦延期！</p></a>'
+    character_image.innerHTML = '<img src="ジャック.png" class="chara_image">'
+}
+
+function next13(){
+    story_page = story_page + 1
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">ジャック</p><p id="message" class="mes">すぐに完成させますから！</p></a>'
+    character_image.innerHTML = '<img src="ジャック.png" class="chara_image">'
+}
+
+function next14(){
+    story_page = story_page + 1
+    cname = ""
+    cmes = "一体、ゲームがちゃんと遊べるようになるのはいつになるのか…"
+    cimg = ""
+    text_box.innerHTML = ' <a href="javascript:exit();"><img src="text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
+    character_image.innerHTML = '<img src="' + cimg + '" class="chara_image">'
+}
+
+function exit(){
+    location.href = ('/jlt/story_select.html')
+}
+
+next1()
+</script>
+</body>
+</html>

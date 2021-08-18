@@ -1,0 +1,66 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-title" content="JLT GAME">
+<meta name="viewport" content="width=350">
+<link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+<title>JLT</title>
+<meta name="description" content="ジャックと生きる木がゲームなった！？">
+<script src="no_scroll.js"></script>
+</head>
+<body>
+
+<center>
+<noscript>
+<h1>ブラウザの設定によってJavaScriptが無効になっています。</h1>
+</noscript>
+</center>
+
+<div class="texts" id="text_box"></div>
+<span id="character_image"><img src="space.png" class="chara_image"></span>
+<span id="menu_img"><a href="javascript:menu_open()"><img src="menu.png" class="menu_image"></a></span>
+
+<script src="base.js"></script>
+<link rel="stylesheet" href="style.css">
+
+<script>
+var story_page = 1
+var cname = "Name"
+var cmes = "mes"
+var cimg = "img.png"
+
+function next1(){
+    story_page = story_page + 1
+    cname = "生きる木"
+    cmes = "実感ないけど、これゲームなんだよね？"
+    cimg = "生きる木.png"
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
+    character_image.innerHTML = '<img src="' + cimg + '" class="chara_image">'
+}
+function next2(){
+    story_page = story_page + 1
+    cname = "ジャック"
+    cmes = "背景がなんか、あれだよね..."
+    cimg = "ジャック.png"
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
+    character_image.innerHTML = '<img src="' + cimg + '" class="chara_image">'
+}
+function next3(){
+    story_page = story_page + 1
+    cname = "生きる木"
+    cmes = "ってことで、背景よろしくね～"
+    cimg = "生きる木.png"
+    text_box.innerHTML = ' <a href="javascript:exit()"><img src="text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
+    character_image.innerHTML = '<img src="' + cimg + '" class="chara_image">'
+}
+function exit(){
+    location.href = ('/jlt/story_select.html')
+}
+
+next1()
+</script>
+</body>
+</html>

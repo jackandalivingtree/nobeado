@@ -1,0 +1,37 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-title" content="のべあど！">
+<meta name="viewport" content="width=250">
+<title>のべあど！</title>
+<meta name="description" content="ジャックと生きる木がゲームなった！？">
+<title>Loading...</title>
+<script>
+function getCookieArray(){
+    var arr = new Array();
+    if(document.cookie != ''){
+        var tmp = document.cookie.split('; ');
+        for(var i=0;i<tmp.length;i++){
+            var data = tmp[i].split('=');
+            arr[data[0]] = decodeURIComponent(data[1]);
+        }
+    }
+    return arr;
+}
+
+
+var arr = getCookieArray();
+var game = arr['start_game'];
+
+if(game == 1){
+	location.href = "home.html"
+}else{
+	location.href = "gen.html"
+}
+
+</script>
+</head>
+</html>

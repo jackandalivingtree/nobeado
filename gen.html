@@ -1,0 +1,43 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-title" content="のべあど！">
+<link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+<title>のべあど！</title>
+<meta name="description" content="ジャックと生きる木がゲームなった！？">
+<script src="stories/no_scroll.js"></script>
+
+</head>
+<body>
+<center>
+<div style="font-size: 8vw; font-family: Sawarabi Gothic;"><b>ユーザー登録</b></div>
+<div style="font-size: 4vw; font-family: Sawarabi Gothic;">ゲームを始める前にユーザー名を登録してね！</div><br><br>
+<div style="font-size: 7vw; font-family: Sawarabi Gothic;">ユーザー名</div>
+<input type="text" id="name" style="width: 60vw; height: 5vh; font-size: 7vw;"></input></br>
+<button onclick="generate()"><div style="font-size: 7vw; font-family: Sawarabi Gothic;">登録</div></button>
+
+<script>
+function generate(){
+	const input = document.getElementById("name")
+	const name = input.value
+	if(name == ""){
+		alert('名前を入れてね！')
+	}else{
+		f=confirm("名前は「"+name+"」でよろしいですか？\n※現在のバージョンでは名前を変更することはできません。\n今後のアップデートで変更できるようにする予定です。")
+		if(f == true){
+			document.cookie = 'start_game=1; expires=1-Jun-2999 00:00:00 GMT;';
+			document.cookie = 'name=' + encodeURI(name) + '; expires=1-Jun-2999 00:00:00 GMT;';
+			alert('ようこそ、'+name+'さん！\nこれからの活躍を期待しています！')
+			location.href = 'home.html'
+		}else{
+			console.log("retype!");
+		}
+	}
+}
+</script>
+
+</body>
+</html>

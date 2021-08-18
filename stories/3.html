@@ -1,0 +1,149 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-title" content="JLT GAME">
+<meta name="viewport" content="width=350">
+<link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+<title>JLT</title>
+<meta name="description" content="ジャックと生きる木がゲームなった！？">
+<script src="no_scroll.js"></script>
+</head>
+<body>
+
+<center>
+<noscript>
+<h1>ブラウザの設定によってJavaScriptが無効になっています。</h1>
+</noscript>
+</center>
+
+<div class="texts" id="text_box"></div>
+<span id="character_image"><img src="space.png" class="chara_image"></span>
+<span id="menu_img"><a href="javascript:menu_open()"><img src="menu.png" class="menu_image"></a></span>
+
+<script src="base.js"></script>
+<link rel="stylesheet" href="style.css">
+
+<script>
+function getCookieArray(){
+    var arr = new Array();
+    if(document.cookie != ''){
+        var tmp = document.cookie.split('; ');
+        for(var i=0;i<tmp.length;i++){
+            var data = tmp[i].split('=');
+            arr[data[0]] = decodeURIComponent(data[1]);
+        }
+    }
+    return arr;
+}
+
+
+var arr = getCookieArray();
+var cookie_name_encoded = arr['name'];
+var cookie_name = decodeURI(cookie_name_encoded)
+var story_page = 1
+var cname = "Name"
+var cmes = "mes"
+var cimg = "img.png"
+
+function next1(){
+    story_page = story_page + 1
+    cname = "生きる木"
+    cmes = "ここは...？"
+    cimg = "生きる木.png"
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
+    character_image.innerHTML = '<img src="' + cimg + '" class="chara_image">'
+    document.body.style.backgroundImage = 'url("yakushima.jpg")';
+}
+function next2(){
+    story_page = story_page + 1
+    cname = "ジャック"
+    cmes = "屋久島だよ～"
+    cimg = "ジャック.png"
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
+    character_image.innerHTML = '<img src="' + cimg + '" class="chara_image">'
+}
+function next3(){
+    story_page = story_page + 1
+    cname = cookie_name
+    cmes = "とっても綺麗な木々だ..."
+    cimg = "space.png"
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
+    character_image.innerHTML = '<img src="' + cimg + '" class="chara_image">'
+}
+function next4(){
+    story_page = story_page + 1
+    cname = "ジャック"
+    cmes = cookie_name + "君もそう思うの！</br>流石だね！"
+    cimg = "ジャック.png"
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
+    character_image.innerHTML = '<img src="' + cimg + '" class="chara_image">'
+}
+function next5(){
+    story_page = story_page + 1
+    cname = "生きる木"
+    cmes = "こらこら～！" + cookie_name + "君～</br>屋久島だけじゃなくても目の前に立派な木がいるでしょ？"
+    cimg = "生きる木.png"
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
+    character_image.innerHTML = '<img src="' + cimg + '" class="chara_image">'
+}
+function next6(){
+    story_page = story_page + 1
+    cname = "ジャック"
+    cmes = "それ" + cookie_name + "君へのパワハラだよ...？"
+    cimg = "ジャック.png"
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
+    character_image.innerHTML = '<img src="' + cimg + '" class="chara_image">'
+}
+function next7(){
+    story_page = story_page + 1
+    cname = "生きる木"
+    cmes = "ちぇ～..."
+    cimg = "生きる木.png"
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
+    character_image.innerHTML = '<img src="' + cimg + '" class="chara_image">'
+}
+function next8(){
+    story_page = story_page + 1
+    cname = "生きる木"
+    cmes = "お！あっちに休憩所あるよ！</br>ジャック！" + cookie_name + "君！行こ！！"
+    cimg = "生きる木.png"
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
+    character_image.innerHTML = '<img src="' + cimg + '" class="chara_image">'
+}
+function next9(){
+    story_page = story_page + 1
+    cname = cookie_name
+    cmes = "生きる木君は元気だな..."
+    cimg = "space.png"
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
+    character_image.innerHTML = '<img src="' + cimg + '" class="chara_image">'
+}
+function next10(){
+    story_page = story_page + 1
+    cname = "ジャック"
+    cmes = "じゃあ、" + cookie_name + "君も行こっかー"
+    cimg = "ジャック.png"
+    text_box.innerHTML = ' <a href="javascript:next' + story_page + '()"><img src="text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
+    character_image.innerHTML = '<img src="' + cimg + '" class="chara_image">'
+}
+function next11(){
+    story_page = story_page + 1
+    cname = cookie_name
+    cmes = "う、うん！"
+    cimg = "space.png"
+    text_box.innerHTML = ' <a href="javascript:exit()"><img src="text_box.png"><p id="chara_name" class="name">' + cname + '</p><p id="message" class="mes">' + cmes + '</p></a>'
+    character_image.innerHTML = '<img src="' + cimg + '" class="chara_image">'
+}
+
+
+function exit(){
+    location.href = ('/jlt/story_select.html')
+}
+
+next1()
+</script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-title" content="のべあど！">
+<meta name="viewport" content="width=350">
+<title>のべあど！</title>
+<meta name="description" content="ジャックと生きる木がゲームなった！？">
+
+
+</head>
+<body text="#ffffff" link="#ccccff">
+<center>
+
+<font size="+1"><b>[Season0]</b></font></br>
+<b>テストストーリー群</b></br>
+<img src="/jlt/stories_pic/スライド1.PNG" style="width: 95%;" onclick="open_story(1)"><br><br>
+<img src="/jlt/stories_pic/スライド2.PNG" style="width: 95%;" onclick="open_story(2)"><br><br>
+<img src="/jlt/stories_pic/スライド3.PNG" style="width: 95%;" onclick="open_story(3)"><br><br>
+<img src="/jlt/stories_pic/スライド4.PNG" style="width: 95%;" onclick="open_story(4)"><br><br>
+<img src="/jlt/stories_pic/スライド5.PNG" style="width: 95%;" onclick="open_story(5)"><br><br>
+<hr>
+<font size="+1"><b>[Season1]</b></font></br>
+<b>のべあど！</b></br>
+<img src="/jlt/stories_pic/スライド6.PNG" style="width: 95%;" onclick="alert('未実装')"><br><br>
+
+</center>
+
+<div id="sampleHeader" class="headerStyle">
+  <a href="javascript:location.href=('home.html')">＜Return</a>
+  <center>
+  <noscript>
+  
+  <h1>ブラウザの設定によってJavaScriptが無効になっています。</h1>
+  
+  </noscript>
+  <font size="+3"><b>【STORY SELECT】</b></font></br>
+  </center>
+</div>
+ 
+
+<script>
+function getCookieArray(){
+    var arr = new Array();
+    if(document.cookie != ''){
+        var tmp = document.cookie.split('; ');
+        for(var i=0;i<tmp.length;i++){
+            var data = tmp[i].split('=');
+            arr[data[0]] = decodeURIComponent(data[1]);
+        }
+    }
+    return arr;
+}
+
+
+var arr = getCookieArray();
+var game = arr['start_game'];
+var name = arr['name'];
+var srid = 1
+
+
+if(game != 1){
+	location.href = "gen.html"
+}
+
+function open_story(id){
+	stid = id
+	document.getElementById("desc").className = "modalBg modalBgOpen";
+	document.info_frame.location.href = "stories/info_" + stid + ".html";
+}
+
+function modalClose(id){
+	stid = id
+	document.getElementById("desc").className = "modalBg modalBgClose";
+}
+
+function start_st(id){
+	location.href = 'stories/' + id + '.html'
+}
+
+</script>
+<style type="text/css">
+body {
+    background-color: #fff;            /* 背景色 */
+    background-image: url("bg_main.jpg"); /* 画像 */
+    background-size: cover;               /* 全画面 */
+    background-attachment: fixed;         /* 固定 */
+    background-position: center center;   /* 縦横中央 */
+ }
+ 
+ /* === モーダル非表示（初期） ============================== */
+.modalNoDisp {
+  display : none;
+}
+
+/* === モーダルバックグランド ============================== */
+.modalBg {
+  position   : fixed;
+  overflow   : hidden;
+  top        : 0;
+  right      : 0;
+  bottom     : 0;
+  left       : 0;
+  background : radial-gradient(circle at 50% 50%,
+                               rgba(153, 153, 153, 0.90),
+                               rgba(153, 153, 153, 0.70));
+  z-index    : 10;
+}
+
+/* === モーダルバックグランド：OPEN時のアニメーション ====== */
+.modalBgOpen {
+  animation  : bgOpenAnime 0.2s ease;
+}
+@keyframes bgOpenAnime {                     /* フェードイン */
+   0% { opacity: 0 }
+ 100% { opacity: 1 }
+}
+
+/* === モーダルバックグランド：CLOSE時のアニメーション ===== */
+.modalBgClose {
+  bottom     : 100%;
+  animation  : bgCloseAnime 0.2s ease;
+}
+@keyframes bgCloseAnime {                     /* フェードイン */
+   0% { opacity: 1; bottom: 0 }
+ 100% { opacity: 0; bottom: 0 }
+}
+
+/* === モーダルウインド ==================================== */
+.modalBg .modalWindow {
+                             /* モーダルウインドを中心に表示 */
+  position      : absolute;
+  top           : 50%;
+  left          : 50%;
+  transform     : translate(-50%, -50%);
+  z-index       : 11;
+           /* ↓モーダルウインドウの見た目：変更してください */
+  width         : 90vw;
+  height    : 80vh;
+  background    : #fff;
+  border        : 3px solid #35557f;
+  border-radius : 10px;
+  font-size     : 16pt;
+  text-align    : center;
+}
+/* === BODYのpaddingを調整する ============================== */
+body{
+  padding-top    : 100px;      /* ヘッダーの高さに合わせる */
+}
+
+/* === ヘッダー ============================================= */
+.headerStyle{
+  position    : fixed;
+  top         : 0;
+  left        : 0;
+  right       : 0;
+  height      : 100px;
+  background  : linear-gradient(#02008d, #449bff);
+  z-index     : 10;
+  text-align  : left;
+  font-weight : bold;
+}
+/* === 文字（大） =========================================== */
+.hdStrBig{
+  font-size   : 30px;
+  line-height : 70px;
+  color       : #fff;
+}
+ 
+/* === 文字（小） =========================================== */
+.hdStrSmall{
+  font-size   : 14px;
+  line-height : 30px;
+  color       : #fff;
+}
+
+
+</style>
+
+<font color="#000000">
+<div id="desc" class="modalNoDisp">
+  <div class="modalWindow">
+    <iframe src="about:blank" style="height: 75vh; width: 87vw;" name="info_frame"></iframe></br>
+    <div><input type="button" value="閉じる" onclick="modalClose( stid )"><input type="button" value="スタート" onclick="start_st( stid )"></div>
+  </div>
+</div>
+
+
+</font> 
+</body>
+</html>
