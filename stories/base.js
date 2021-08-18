@@ -23,11 +23,11 @@ if (cookie_game != 1){
 
 
 function menu_open(){
-    menu_img.innerHTML = '<a href="javascript:menu_close()"><img src="back_menu.png" class="back_menu_image"></a><a href="javascript:menu_top()"><img src="top_menu.png" class="top_menu_image"></a><a href="javascript:menu_skip()"><img src="skip_menu.png" class="skip_menu_image"></a>'
+    menu_img.innerHTML = '<a href="javascript:menu_close()"><img src="images/sprite/back_menu.png" class="back_menu_image"></a><a href="javascript:menu_top()"><img src="images/sprite/top_menu.png" class="top_menu_image"></a><a href="javascript:menu_skip()"><img src="images/sprite/skip_menu.png" class="skip_menu_image"></a>'
 }
 
 function menu_close(){
-    menu_img.innerHTML = '<a href="javascript:menu_open()"><img src="menu.png" class="menu_image"></a>'
+    menu_img.innerHTML = '<a href="javascript:menu_open()"><img src="images/sprite/menu.png" class="menu_image"></a>'
 }
 
 function menu_top(){
