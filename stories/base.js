@@ -50,3 +50,7 @@ function set_texts(type){
         character_image.innerHTML = '<img src="' + cimg + '" class="chara_image">'
     }
 }
+
+function exit(){
+    location.href = ('../story_select.html')
+}
