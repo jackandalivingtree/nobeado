@@ -27,9 +27,9 @@ function create_set(){
         var bg_ch = ""
     }
 
-    var mes_un = "function next" + page + "(){<br>&#009;story_page = story_page + 1<br>&#009;cname = '" + cname_i + "'<br>&#009;cmes = '" + mes_i + "'<br>&#009;cimg = " + img_i + "<br>&#009;set_texts()<br>" + bg_ch + "}"
-    var mes_0 = "function next" + page + "(){<br>&#009;story_page = story_page + 1<br>&#009;cname = '" + cname_i + "'<br>&#009;cmes = '" + mes_i + "'<br>&#009;cimg = " + img_i + "<br>&#009;set_texts(0)<br>" + bg_ch + "}"
-    var mes_1 = "function next" + page + "(){<br>&#009;story_page = story_page + 1<br>&#009;waku_txt.innerHTML = '" + mes_i + "'<br>&#009;modalOpen();<br>&#009;set_texts(1)<br>&#009;setTimeout(modalClose, 3200);<br>}"
+    var mes_un = "function next" + page + "(){<br>&#009;story_page = story_page + 1<br>&#009;cname = '" + cname_i + "'<br>&#009;cmes = '" + mes_i + "'<br>&#009;cimg = " + img_i + "<br>&#009;set_texts()<br>" + bg_ch + "}<br>"
+    var mes_0 = "function next" + page + "(){<br>&#009;story_page = story_page + 1<br>&#009;cname = '" + cname_i + "'<br>&#009;cmes = '" + mes_i + "'<br>&#009;cimg = " + img_i + "<br>&#009;set_texts(0)<br>" + bg_ch + "}<br>"
+    var mes_1 = "function next" + page + "(){<br>&#009;story_page = story_page + 1<br>&#009;waku_txt.innerHTML = '" + mes_i + "'<br>&#009;modalOpen();<br>&#009;set_texts(1)<br>&#009;setTimeout(modalClose, 3200);<br>}<br>"
 
     var cache = document.getElementById( "target" ) ;
     var radioNodeList = cache.type_s ;
