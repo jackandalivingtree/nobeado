@@ -16,15 +16,15 @@
 <span class="main_text">
 <font size="+1"><b>[Season0]</b></font></br>
 <b>テストストーリー群</b></br>
-<img src="stories_pic/スライド1.PNG" style="width: 95%;" onclick="open_story(1)"><br><br>
-<img src="stories_pic/スライド2.PNG" style="width: 95%;" onclick="open_story(2)"><br><br>
-<img src="stories_pic/スライド3.PNG" style="width: 95%;" onclick="open_story(3)"><br><br>
-<img src="stories_pic/スライド4.PNG" style="width: 95%;" onclick="open_story(4)"><br><br>
-<img src="stories_pic/スライド5.PNG" style="width: 95%;" onclick="open_story(5)"><br><br>
+<img src="stories_pic/スライド1.PNG" class="story_img" onclick="open_story(1)"><br><br>
+<img src="stories_pic/スライド2.PNG" class="story_img" onclick="open_story(2)"><br><br>
+<img src="stories_pic/スライド3.PNG" class="story_img" onclick="open_story(3)"><br><br>
+<img src="stories_pic/スライド4.PNG" class="story_img" onclick="open_story(4)"><br><br>
+<img src="stories_pic/スライド5.PNG" class="story_img" onclick="open_story(5)"><br><br>
 <hr>
 <font size="+1"><b>[Season1]</b></font></br>
 <b>のべあど！</b></br>
-<img src="stories_pic/スライド6.PNG" style="width: 95%;" onclick="alert('未実装')"><br><br>
+<img src="stories_pic/スライド6.PNG" class="story_img" onclick="alert('未実装')"><br><br>
 
 </span>
 
@@ -188,6 +188,11 @@ body{
        0px  2px 1px #000000,
       -2px  0px 1px #000000,
        0px -2px 1px #000000;
+}
+
+.story_img{
+  width: 95%;
+  pointer-events: none;
 }
 </style>
 
