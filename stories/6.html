@@ -11,7 +11,7 @@
 <meta name="description" content="ジャックと生きる木がゲームなった！？">
 <script src="no_scroll.js"></script>
 </head>
-<body bgcolor="#000000">
+<body bgcolor="#000000" onselectstart="return false;" onmousedown="return false;" oncontextmenu="return false;">
 
 <center>
 <noscript>
@@ -176,7 +176,6 @@ function next2(){
 	modalOpen();
 	set_texts(1)
 	setTimeout(modalClose, 3200);
-	
 }
 function next3(){
     story_page = story_page + 1
