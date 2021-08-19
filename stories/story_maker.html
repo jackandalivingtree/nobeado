@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>nobeado</title>
+        <script src="story_maker.js"></script>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <form id="target">
+            名前:<input type="text" id="i_name"><br><br>
+            メッセージ:<textarea rows="4" cols="20" id="i_mes"></textarea><br><br>
+            キャラ画像：<input type="radio" name="img_c" value="ch_space">ch_space
+            <input type="radio" name="img_c" value="ch_jack">ch_jack
+            <input type="radio" name="img_c" value="ch_tree">ch_tree
+            <input type="radio" name="img_c" value="other">other<br>
+            画像パス：images/chara/<input type="text" id="img_pa"><br><br>
+            背景画像：<input type="radio" name="img_b" value="yes">変更有
+            <input type="radio" name="img_b" value="no">変更なし<br>
+            画像パス：images/bg/<input type="text" id="img_b_pa"><br><br>
+            タイプ：<input type="radio" name="type_s" value="Undefined">Undefined:通常
+            <input type="radio" name="type_s" value="0">0:終了
+            <input type="radio" name="type_s" value="1">1:モーダル<br><br>
+            </form>
+            <button onclick="create_set()">生成</button>
+            <pre id="mes"></pre>
+    </body>
