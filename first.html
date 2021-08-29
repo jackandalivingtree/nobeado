@@ -6,7 +6,6 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="apple-mobile-web-app-title" content="のべあど！">
 <meta name="viewport" content="width=250">
-<title>のべあど！</title>
 <meta name="description" content="ジャックと生きる木がゲームなった！？">
 <title>Loading...</title>
 <script>
@@ -22,16 +21,19 @@ function getCookieArray(){
     return arr;
 }
 
-
+try{
 var arr = getCookieArray();
 var game = arr['start_game'];
 
 if(game == 1){
-	location.href = "home.html"
+	location.href = ("home.html")
 }else{
-	location.href = "gen.html"
+	location.href = ("user_log.html")
 }
-
+}catch(e){
+console.log ('Unknown ERROR!!!')
+location.href = ("user_log.html")
+}
 </script>
 </head>
 </html>

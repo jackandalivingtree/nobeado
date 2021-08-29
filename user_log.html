@@ -1,0 +1,28 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-title" content="のべあど！">
+<meta name="viewport" content="width=350">
+<link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+<title>のべあど！</title>
+<meta name="description" content="ジャックと生きる木がゲームなった！？">
+<link rel="stylesheet" href="user_log.css">
+</head>
+<body>
+<a href="javascript:location.href = ('index.html')" class="return">&lt;Return</a>
+<center>
+<div class="first">ログイン</div>
+<div class="second">下のテキストボックスにキーを入れてください。</div>
+<textarea id="key_phase" class="key" placeholder="ここにキーを入れてください。"></textarea><br>
+<button onclick="login()" class="bt">ログイン</button><br>
+<a id="log_error" class="second" href="javascript:location.href = ('help_login.html')"></a><br><br>
+<hr>
+<div class="first">新規登録</div>
+<div class="second">アカウントを作成します。</div>
+<button onclick="registor()" class="bt">新規登録</button>
+<script src="user_log.js"></script>
+</body>
+</html>

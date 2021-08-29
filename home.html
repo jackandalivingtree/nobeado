@@ -21,7 +21,13 @@
 <font size="+1"><b>【メインメニュー】</b></font></br>
 <font size="-1">ようこそ、<b><span id="nm">[UserNAME]</span></b>さん！</font></br>
 <img src="season_spring.png" width="200" height="200" style="pointer-events: none;"></br>
+
+<div class="box2">
+    <a href="javascript:location.href = ('最新版SafariでのITP2.1に関する不具合に関しての報告書.pdf')">Apple製デバイスをご利用の方へ</a>
+</div>
+
 <button style="width: 200px; height: 80px;" onclick="location.href = 'story_select.html'">ストーリー</button></br>
+<button style="width: 200px; height: 80px;" onclick="location.href = 'save_key.html'">キー発行</button></br>
 </br>
 <button style="width: 200px; height: 30px;" onclick="location.href = 'del.html'">初期化</button></br>
 </center>
@@ -44,12 +50,27 @@ var game = arr['start_game'];
 var name = arr['name'];
 
 if(game != 1){
-	location.href = "gen.html"
+	location.href = "first.html"
 }
 
 nm.innerHTML = decodeURI(name)
 
 
 </script>
+<style>
+.box2 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: #ffffff;/*文字色*/
+    background: rgb(255, 150, 150);
+    border: solid 3px #ff0000;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+.box2 a {
+    margin: 0; 
+    padding: 0;
+}
+</style>
 </body>
 </html>

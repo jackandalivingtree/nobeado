@@ -12,6 +12,7 @@
 
 </head>
 <body>
+<a href="javascript:location.href = ('user_log.html')" style="font-size: 6vw; font-family: Sawarabi Gothic;">&lt;Return</a>
 <center>
 <div style="font-size: 8vw; font-family: Sawarabi Gothic;"><b>ユーザー登録</b></div>
 <div style="font-size: 4vw; font-family: Sawarabi Gothic;">ゲームを始める前にユーザー名を登録してね！</div><br><br>
@@ -21,10 +22,12 @@
 
 <script>
 function generate(){
-	const input = document.getElementById("name")
-	const name = input.value
+	var input = document.getElementById("name")
+	var name = input.value
 	if(name == ""){
 		alert('名前を入れてね！')
+	}else if(name.indexOf('/') != -1||name.indexOf('=') != -1){
+		alert('入れることのできない記号が入っています。')
 	}else{
 		f=confirm("名前は「"+name+"」でよろしいですか？\n※現在のバージョンでは名前を変更することはできません。\n今後のアップデートで変更できるようにする予定です。")
 		if(f == true){

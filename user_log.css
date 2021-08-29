@@ -1,0 +1,23 @@
+.return{
+    font-size: 6vw;
+    font-family: "Sawarabi Gothic", serif;
+}
+.first{
+    font-size: 8vw;
+    font-family: "Sawarabi Gothic", serif;
+}
+.second{
+    font-size: 4vw;
+    font-family: "Sawarabi Gothic", serif;
+}
+.key{
+    width: 95vw;
+    height: 25vh;
+    font-family: "Sawarabi Gothic", serif;
+    font-size: 4vw;
+}
+.bt{
+    width: 50vw;
+    font-size: 8vw;
+    font-family: "Sawarabi Gothic", serif;
+}
