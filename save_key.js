@@ -10,10 +10,13 @@ function getCookieArray(){
     return arr;
 }
 
-
+try{
 var arr = getCookieArray();
 var game = arr['start_game'];
 var name_c = arr['name'];
-var key_undeco = "name=" + name_c + "/start_game=" + game
+var key_undeco = "name=" + encodeURI(name_c) + "/start_game=" + game
 var key = btoa(key_undeco);
+}catch(e){
+alert('エラーが発生しました。\n詳細：' + e.message)
+}
 key_phase.innerHTML = (key)
