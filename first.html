@@ -9,30 +9,15 @@
 <meta name="description" content="ジャックと生きる木がゲームなった！？">
 <title>Loading...</title>
 <script>
-function getCookieArray(){
-    var arr = new Array();
-    if(document.cookie != ''){
-        var tmp = document.cookie.split('; ');
-        for(var i=0;i<tmp.length;i++){
-            var data = tmp[i].split('=');
-            arr[data[0]] = decodeURIComponent(data[1]);
-        }
-    }
-    return arr;
-}
-
 try{
-var arr = getCookieArray();
-var game = arr['start_game'];
-
-if(game == 1){
-	location.href = ("home.html")
-}else{
-	location.href = ("user_log.html")
-}
+    var game = localStorage.getItem("start_game")
+    if(game == 1){
+    	location.href = ("home.html")
+    }else{
+    	location.href = ("user_log.html")
+    }
 }catch(e){
-console.log ('Unknown ERROR!!!')
-location.href = ("user_log.html")
+    location.href = ("user_log.html")
 }
 </script>
 </head>

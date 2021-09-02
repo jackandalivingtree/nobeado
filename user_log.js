@@ -21,7 +21,7 @@ function login(){
             if(ary == undefined||splited == undefined||name_key == undefined||name_value == undefined){
                 throw new Error('Prevented error: The assigned value is invalid.')
             }
-            document.cookie = name_key + '=' + name_value + '; expires=1-Jun-2999 00:00:00 GMT;';
+            localStorage.setItem(name_key, name_value)
             l = l - 1
             result.shift();
         }

@@ -45,37 +45,19 @@
  
 
 <script>
-function getCookieArray(){
-    var arr = new Array();
-    if(document.cookie != ''){
-        var tmp = document.cookie.split('; ');
-        for(var i=0;i<tmp.length;i++){
-            var data = tmp[i].split('=');
-            arr[data[0]] = decodeURIComponent(data[1]);
-        }
-    }
-    return arr;
-}
-
-
-var arr = getCookieArray();
-var game = arr['start_game'];
-var name = arr['name'];
-var srid = 1
-
+var game = localStorage.getItem("start_game")
+var game = localStorage.getItem("name")
 
 if(game != 1){
 	location.href = "gen.html"
 }
 
 function open_story(id){
-	stid = id
 	document.getElementById("desc").className = "modalBg modalBgOpen";
-	document.info_frame.location.href = "stories/info_" + stid + ".html";
+	document.info_frame.location.href = "stories/info_" + id + ".html";
 }
 
 function modalClose(id){
-	stid = id
 	document.getElementById("desc").className = "modalBg modalBgClose";
 }
 

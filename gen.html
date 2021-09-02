@@ -21,6 +21,10 @@
 <button onclick="generate()"><div style="font-size: 7vw; font-family: Sawarabi Gothic;">登録</div></button>
 
 <script>
+if((localStorage.getItem("start_game"))=="1"){
+	location.href = ("home.html")
+}
+
 function generate(){
 	var input = document.getElementById("name")
 	var name = input.value
@@ -31,8 +35,8 @@ function generate(){
 	}else{
 		f=confirm("名前は「"+name+"」でよろしいですか？\n※現在のバージョンでは名前を変更することはできません。\n今後のアップデートで変更できるようにする予定です。")
 		if(f == true){
-			document.cookie = 'start_game=1; expires=1-Jun-2999 00:00:00 GMT;';
-			document.cookie = 'name=' + encodeURI(name) + '; expires=1-Jun-2999 00:00:00 GMT;';
+			localStorage.setItem("start_game", "1")
+			localStorage.setItem("name", encodeURI(name))
 			alert('ようこそ、'+name+'さん！\nこれからの活躍を期待しています！')
 			location.href = 'home.html'
 		}else{

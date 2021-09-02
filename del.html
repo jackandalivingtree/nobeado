@@ -24,9 +24,7 @@
 function delet(){
 		f=confirm("すべてのデータを初期化してもよろしいですか？")
 		if(f == true){
-			document.cookie = 'start_game=1; max-age=0';
-			document.cookie = 'name=0; max-age=0';
-			document.cookie = 'gen=0; max-age=0';
+			localStorage.clear()
 			alert('セーブデータの初期化を行いました。')
 			location.href = 'index.html'
 		}else{

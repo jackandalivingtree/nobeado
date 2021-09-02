@@ -23,31 +23,17 @@
 <img src="season_spring.png" width="200" height="200" style="pointer-events: none;"></br>
 
 <div class="box2">
-    <a href="javascript:location.href = ('最新版SafariでのITP2.1に関する不具合に関しての報告書.pdf')">Apple製デバイスをご利用の方へ</a>
+    <a href="javascript:location.href = ('最新版SafariでのITP2.1に関する不具合に関しての報告書2.pdf')">ITP2.1に関する最新の報告書</a>
 </div>
 
-<button style="width: 200px; height: 80px;" onclick="location.href = 'story_select.html'">ストーリー</button></br>
-<button style="width: 200px; height: 80px;" onclick="location.href = 'save_key.html'">キー発行</button></br>
-</br>
-<button style="width: 200px; height: 30px;" onclick="location.href = 'del.html'">初期化</button></br>
+<button style="width: 200px; height: 80px;" onclick="location.href = 'story_select.html'">ストーリー</button><br>
+<br>
+<button style="width: 200px; height: 30px;" onclick="location.href = 'save_key.html'">キー発行</button><br>
+<button style="width: 200px; height: 30px;" onclick="location.href = 'del.html'">初期化</button><br>
 </center>
 <script>
-function getCookieArray(){
-    var arr = new Array();
-    if(document.cookie != ''){
-        var tmp = document.cookie.split('; ');
-        for(var i=0;i<tmp.length;i++){
-            var data = tmp[i].split('=');
-            arr[data[0]] = decodeURIComponent(data[1]);
-        }
-    }
-    return arr;
-}
-
-
-var arr = getCookieArray();
-var game = arr['start_game'];
-var name = arr['name'];
+var game = localStorage.getItem("start_game")
+var name = localStorage.getItem("name")
 
 if(game != 1){
 	location.href = "first.html"
@@ -63,8 +49,8 @@ nm.innerHTML = decodeURI(name)
     margin: 2em 0;
     font-weight: bold;
     color: #ffffff;/*文字色*/
-    background: rgb(255, 150, 150);
-    border: solid 3px #ff0000;/*線*/
+    background: rgb(255, 225, 225);
+    border: solid 3px #ffc1c1;/*線*/
     border-radius: 10px;/*角の丸み*/
 }
 .box2 a {
