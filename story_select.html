@@ -46,15 +46,16 @@
 
 <script>
 var game = localStorage.getItem("start_game")
-var game = localStorage.getItem("name")
+var name = localStorage.getItem("name")
 
-if(game != 1){
+if(game != "1"){
 	location.href = "gen.html"
 }
 
 function open_story(id){
+	stid = id
 	document.getElementById("desc").className = "modalBg modalBgOpen";
-	document.info_frame.location.href = "stories/info_" + id + ".html";
+	document.info_frame.location.href = "stories/info_" + stid + ".html";
 }
 
 function modalClose(id){
@@ -64,7 +65,6 @@ function modalClose(id){
 function start_st(id){
 	location.href = 'stories/' + id + '.html'
 }
-
 </script>
 <style type="text/css">
 body {
