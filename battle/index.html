@@ -5,58 +5,187 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
 <meta name="apple-mobile-web-app-title" content="のべあど！">
-<meta name="viewport" content="width=250">
+<meta name="viewport" content="width=350">
 <title>のべあど！</title>
 <meta name="description" content="ジャックと生きる木がゲームなった！？">
 
+
 </head>
-<body>
-<a href="javascript:open( 'index.html', '_top' )">＜Return</a>
+<body text="#ffffff" link="#ccccff">
 <center>
-<noscript>
+<span class="main_text">
+<font size="+1"><b>[Season0]</b></font></br>
+<b>テストストーリー群</b></br>
+<img src="stories_pic/スライド1.PNG" class="story_img" onclick="location.href = ('battle.html')"><br><br>
+<hr>
+<font size="+1"><b>[Season1]</b></font></br>
+<b>のべあど！</b></br>
 
-<h1>ブラウザの設定によってJavaScriptが無効になっています。</h1>
+</span>
 
-</noscript>
-<font size="+1"><b>【メインメニュー】</b></font></br>
-<font size="-1">ようこそ、<b><span id="nm">[UserNAME]</span></b>さん！</font></br>
-<img src="season_spring.png" width="200" height="200" style="pointer-events: none;"></br>
-
-<div class="box2">
-    <a href="javascript:location.href = ('最新版SafariでのITP2.1に関する不具合に関しての報告書2.pdf')">ITP2.1に関する最新の報告書</a>
-</div>
-
-<button style="width: 200px; height: 80px;" onclick="location.href = 'story_select.html'">ストーリー</button><br>
-<br>
-<button style="width: 200px; height: 30px;" onclick="location.href = 'save_key.html'">キー発行</button><br>
-<button style="width: 200px; height: 30px;" onclick="location.href = 'del.html'">初期化</button><br>
 </center>
+
+<div id="sampleHeader" class="headerStyle">
+  <a href="javascript:location.href=('../home.html')">＜Return</a>
+  <center>
+  <noscript>
+  
+  <h1>ブラウザの設定によってJavaScriptが無効になっています。</h1>
+  
+  </noscript>
+  <font size="+3"><b>【ITEM SELECT】</b></font></br>
+  </center>
+</div>
+ 
+
 <script>
 var game = localStorage.getItem("start_game")
 var name = localStorage.getItem("name")
 
-if(game != 1){
-	location.href = "first.html"
+if(game != "1"){
+	location.href = "gen.html"
 }
 
-nm.innerHTML = decodeURI(name)
+function open_story(id){
+	stid = id
+	document.getElementById("desc").className = "modalBg modalBgOpen";
+	document.info_frame.location.href = "stories/info_" + stid + ".html";
+}
 
+function modalClose(id){
+	document.getElementById("desc").className = "modalBg modalBgClose";
+}
 
+function start_st(id){
+	location.href = 'stories/' + id + '.html'
+}
 </script>
-<style>
-.box2 {
-    padding: 0.5em 1em;
-    margin: 2em 0;
-    font-weight: bold;
-    color: #ffffff;/*文字色*/
-    background: rgb(255, 225, 225);
-    border: solid 3px #ffc1c1;/*線*/
-    border-radius: 10px;/*角の丸み*/
+<style type="text/css">
+body {
+    background-color: #fff;            /* 背景色 */
+    background-image: url("bg_main.jpg"); /* 画像 */
+    background-size: cover;               /* 全画面 */
+    background-attachment: fixed;         /* 固定 */
+    background-position: center center;   /* 縦横中央 */
+ }
+ 
+ /* === モーダル非表示（初期） ============================== */
+.modalNoDisp {
+  display : none;
 }
-.box2 a {
-    margin: 0; 
-    padding: 0;
+
+/* === モーダルバックグランド ============================== */
+.modalBg {
+  position   : fixed;
+  overflow   : hidden;
+  top        : 0;
+  right      : 0;
+  bottom     : 0;
+  left       : 0;
+  background : radial-gradient(circle at 50% 50%,
+                               rgba(153, 153, 153, 0.90),
+                               rgba(153, 153, 153, 0.70));
+  z-index    : 10;
+}
+
+/* === モーダルバックグランド：OPEN時のアニメーション ====== */
+.modalBgOpen {
+  animation  : bgOpenAnime 0.2s ease;
+}
+@keyframes bgOpenAnime {                     /* フェードイン */
+   0% { opacity: 0 }
+ 100% { opacity: 1 }
+}
+
+/* === モーダルバックグランド：CLOSE時のアニメーション ===== */
+.modalBgClose {
+  bottom     : 100%;
+  animation  : bgCloseAnime 0.2s ease;
+}
+@keyframes bgCloseAnime {                     /* フェードイン */
+   0% { opacity: 1; bottom: 0 }
+ 100% { opacity: 0; bottom: 0 }
+}
+
+/* === モーダルウインド ==================================== */
+.modalBg .modalWindow {
+                             /* モーダルウインドを中心に表示 */
+  position      : absolute;
+  top           : 50%;
+  left          : 50%;
+  transform     : translate(-50%, -50%);
+  z-index       : 11;
+           /* ↓モーダルウインドウの見た目：変更してください */
+  width         : 90vw;
+  height    : 80vh;
+  background    : #fff;
+  border        : 3px solid #35557f;
+  border-radius : 10px;
+  font-size     : 16pt;
+  text-align    : center;
+}
+/* === BODYのpaddingを調整する ============================== */
+body{
+  padding-top    : 100px;      /* ヘッダーの高さに合わせる */
+}
+
+/* === ヘッダー ============================================= */
+.headerStyle{
+  position    : fixed;
+  top         : 0;
+  left        : 0;
+  right       : 0;
+  height      : 100px;
+  background  : linear-gradient(#8d0000, #ff4444);
+  z-index     : 10;
+  text-align  : left;
+  font-weight : bold;
+}
+/* === 文字（大） =========================================== */
+.hdStrBig{
+  font-size   : 30px;
+  line-height : 70px;
+  color       : #fff;
+}
+ 
+/* === 文字（小） =========================================== */
+.hdStrSmall{
+  font-size   : 14px;
+  line-height : 30px;
+  color       : #fff;
+}
+
+.main_text{
+  text-shadow    : 
+       2px  2px 1px #000000,
+      -2px  2px 1px #000000,
+       2px -2px 1px #000000,
+      -2px -2px 1px #000000,
+       2px  0px 1px #000000,
+       0px  2px 1px #000000,
+      -2px  0px 1px #000000,
+       0px -2px 1px #000000;
+}
+
+.story_img{
+  width: 95%;
+                -webkit-touch-callout:none;
+                -webkit-user-select:none;
+                -moz-touch-callout:none;
+                -moz-user-select:none;
+                user-select:none;
 }
 </style>
+
+<font color="#000000">
+<div id="desc" class="modalNoDisp">
+  <div class="modalWindow">
+    <iframe src="about:blank" style="height: 75vh; width: 87vw;" name="info_frame"></iframe></br>
+    <div><input type="button" value="閉じる" onclick="modalClose( stid )"><input type="button" value="スタート" onclick="start_st( stid )"></div>
+  </div>
+</div>
+
+
+</font> 
 </body>
 </html>

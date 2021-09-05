@@ -1,0 +1,175 @@
+body {
+    background-color: #777777;            /* 背景色 */
+    background-image: url("images/bg/default_bg_image.png"); /* 画像 */
+    background-size: cover;               /* 全画面 */
+    background-attachment: fixed;         /* 固定 */
+    background-position: center center;   /* 縦横中央 */
+ }
+ 
+ .wrapper{
+     min-height: 100vh;
+     position: relative;
+     z-index: -10;
+ }
+ 
+ .texts{
+     width: 90%;
+     height: 56vw;
+     text-align: center;
+     padding: 10px 2.5%;
+     position: absolute;
+     bottom: 0;
+     z-index: 10;
+ }
+ 
+ .texts img{
+     width: 100%;
+     text-align: center;
+     bottom: 0;
+     z-index: 10;
+ }
+ 
+ 
+ .texts .mes{
+    position: absolute;
+    width: 90%;
+    top: 8%;
+    left: 5%;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    font-family: "Sawarabi Gothic",sans-serif;
+    text-align: left;
+    font-size: 4vw;
+ }
+ 
+ .menu_image{
+     width: 30%;
+     height: 20vw;
+     position: absolute;
+     z-index: 10;
+ }
+ 
+ .back_menu_image{
+     width: 30%;
+     height: 20vw;
+     position: absolute;
+     z-index: 10;
+
+ }
+ 
+ .top_menu_image{
+     width: 20%;
+     left: 34%;
+     top: 4%;
+     position: absolute;
+     z-index: 10;
+
+ }
+ 
+ .skip_menu_image{
+     width: 20%;
+     left: 55%;
+     top: 4%;
+     position: absolute;
+     z-index: 10;
+ }
+ 
+ .chara_image{
+     width: 60%;
+     text-align: center;
+     padding: 25% 15%;
+     position: absolute;
+     bottom: 10%;
+     z-index: 5;
+     pointer-events: none;
+ }
+
+ .bt_attack{
+    position: absolute;
+    left: 8%;
+    width: 40%;
+    text-align: center;
+    bottom: 13%;
+    z-index: 150;
+}
+.bt_defend{
+    position: absolute;
+    right: 8%;
+    width: 40%;
+    text-align: center;
+    bottom: 13%;
+    z-index: 150;
+}
+.bt_talk{
+    position: absolute;
+    left: 8%;
+    width: 40%;
+    text-align: center;
+    bottom: 4%;
+    z-index: 150;
+}
+.bt_magic{
+    position: absolute;
+    right: 8%;
+    width: 40%;
+    text-align: center;
+    bottom: 4%;
+    z-index: 150;
+}
+
+.enemy_ui{
+    position:  absolute;
+    z-index: 150;
+    width: 95%;
+    height: 8%;
+    left: 2.5%;
+    top: 20vw;
+    text-align: center;
+}
+.target_ui{
+    position:  absolute;
+    z-index: 150;
+    width: 95%;
+    left: 2.5%;
+    height: 8%;
+    bottom: 57vw;
+    text-align: center;
+}
+
+.enemy_ui .enemy_hp{
+    width: 100%;
+    height: 100%;
+}
+.target_ui .target_hp{
+    width: 100%;
+    height: 100%;
+}
+.enemy_ui .enemy_hp_count{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:100%;
+}
+
+.target_ui .target_hp_count{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:100%;
+}
+
+.enemy_shield{
+    position: absolute;
+    width: 20%;
+    top: calc(70px + 6%);
+}
+
+
+.target_shield{
+    position: absolute;
+    width: 20%;
+    bottom: calc(216px + 4%);
+}

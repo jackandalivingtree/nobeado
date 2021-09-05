@@ -1,0 +1,152 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-title" content="のべあど！">
+<meta name="viewport" content="width=350">
+<link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+<title>のべあど！</title>
+<meta name="description" content="ジャックと生きる木がゲームなった！？">
+<script src="no_scroll.js"></script>
+<script src="battle.js"></script>
+<script src="chara.js"></script>
+</head>
+<body bgcolor="#000000" onselectstart="return false;" onmousedown="return false;" oncontextmenu="return false;">
+
+<center>
+<noscript>
+<h1>ブラウザの設定によってJavaScriptが無効になっています。</h1>
+</noscript>
+</center>
+
+<span id="span_load">
+
+<img id="hide" src="images/sprite/black.png" style="z-index: 1000; width: 100vw; height: 100vh; position: absolute; text-align: center; top: 50%; left: 50%; transform: translate(-50%,-50%);" class="black_board">
+<div style="z-index: 1001; position: absolute; font-family: sans-serif; color: #ffffff; font-size: 5vw; text-align: center; top: 50%; left: 50%; transform: translate(-50%,-50%);">NOW LOADING...</div>
+<img id="load" src="images/sprite/back_menu.png" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
+<img id="load" src="images/sprite/top_menu.png" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
+<img id="load" src="images/sprite/skip_menu.png" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
+<img id="load" src="images/chara/jack.png" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
+<img id="load" src="images/chara/tree.png" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
+<img id="load" src="images/sprite/text_box.png" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
+<img id="load" src="images/bg/bg_black.png" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
+<img id="load" src="images/bg/yakushima.jpg" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
+<div style="z-index: -1000; position: absolute; width: 0%; height: 0%;">
+    <!-- chara -->
+    ジャック
+    生きる木
+    おにぎり
+    <!-- mes -->
+
+</div>
+
+<div style="z-index: -1000; position: absolute; width: 0%; height: 0%;" id="name_preload"></div>
+</span>
+
+<div class="enemy_ui">
+<progress class="enemy_hp" id="enemyHp"></progress>
+<div class="enemy_hp_count" id="enemyHpCount">XXX</div>
+</div>
+
+<div class="target_ui">
+<progress class="target_hp"id="targetHp"></progress>
+<div class="target_hp_count" id="targetHpCount">XXX</div>
+</div>
+
+<div id="attack_img"><a href="javascript:action(1)"><img src="images/sprite/attack.png" class="bt_attack"></a></div>
+<div id="defend_img"><a href="javascript:action(2)"><img src="images/sprite/defend.png" class="bt_defend"></a></div>
+<div id="talk_img"><a href="javascript:action(3)"><img src="images/sprite/talk.png" class="bt_talk"></a></div>
+<div id="magic_img"><a href="javascript:action(4)"><img src="images/sprite/magic.png" class="bt_magic"></a></div>
+<div id="target_shield"></div>
+<div id="enemy_shield"></div>
+
+
+
+<div class="texts" id="text_box"></div>
+<span id="character_image"><img src="images/chara/space.png" class="chara_image"></span>
+<span id="menu_img"><a href="javascript:menu_open()"><img src="images/sprite/menu.png" class="menu_image" id="menu_image_for_height"></a></span>
+
+<div id="modalArea" class="modalNoDisp">
+  <div class="modalWindow" id="fw_text">
+  <img src="images/sprite/waku.png" style="width: 90vw; height: 10vh;"></img>
+  <div class="waku_text" id="waku_txt">テスト<br>テスト</div>
+  </div>
+</div>
+
+
+<link rel="stylesheet" href="style.css">
+<script src="base.js"></script>
+
+<style type="text/css">
+.modalNoDisp {
+  display : none;
+}
+
+.modalBg {
+  position   : fixed;
+  overflow   : hidden;
+  top        : 0;
+  right      : 0;
+  bottom     : 0;
+  left       : 0;
+  background : rgba(0, 0, 0);
+  z-index    : 100;
+}
+
+.modalBgOpen {
+  animation  : bgOpenAnime 1.3s ease;
+}
+@keyframes bgOpenAnime {
+   0% { opacity: 0 }
+ 100% { opacity: 1 }
+}
+
+.modalBgClose {
+  bottom     : 100%;
+  animation  : bgCloseAnime 1.3s ease;
+}
+@keyframes bgCloseAnime {
+   0% { opacity: 1; bottom: 0 }
+ 100% { opacity: 0; bottom: 0 }
+}
+
+.modalBg .modalWindow {
+  position      : absolute;
+  top           : 50%;
+  left          : 50%;
+  transform     : translate(-50%, -50%);
+  z-index       : 101;
+  font-family: "Sawarabi Gothic";
+  font-size: 5vw;
+  text-align    : center;
+  color: #000;
+}
+.waku_text{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	width:88%;
+}
+</style>
+
+<script>
+var story_page = 1
+var cname = "Name"
+var cmes = "mes"
+var cimg = "img.png"
+let ch_jack = "images/chara/jack.png"
+let ch_tree = "images/chara/tree.png"
+let ch_space = "images/chara/space.png"
+document.body.style.backgroundImage = 'url("images/bg/bg_black.png")';
+
+set_texts(0,"こんにちわ！")
+
+
+name_preload.innerHTML = user_name
+span_load.innerHTML = ""
+</script>
+</body>
+</html>
