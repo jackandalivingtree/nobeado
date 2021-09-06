@@ -5,6 +5,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
 <meta name="apple-mobile-web-app-title" content="のべあど！">
+<link rel="shortcut icon" href="../icon.ico" type="image/vnd.microsoft.icon">
 <meta name="viewport" content="width=350">
 <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
 <title>のべあど！</title>
@@ -55,13 +56,13 @@
 <div class="target_hp_count" id="targetHpCount">XXX</div>
 </div>
 
-<div id="attack_img"><a href="javascript:action(1)"><img src="images/sprite/attack.png" class="bt_attack"></a></div>
-<div id="defend_img"><a href="javascript:action(2)"><img src="images/sprite/defend.png" class="bt_defend"></a></div>
-<div id="talk_img"><a href="javascript:action(3)"><img src="images/sprite/talk.png" class="bt_talk"></a></div>
-<div id="magic_img"><a href="javascript:action(4)"><img src="images/sprite/magic.png" class="bt_magic"></a></div>
+<div id="attack_img"></div>
+<div id="defend_img"></div>
+<div id="talk_img"></div>
+<div id="magic_img"></div>
 <div id="target_shield"></div>
 <div id="enemy_shield"></div>
-
+<div id="enemy_image"></div>
 
 
 <div class="texts" id="text_box"></div>
@@ -140,9 +141,8 @@ var cimg = "img.png"
 let ch_jack = "images/chara/jack.png"
 let ch_tree = "images/chara/tree.png"
 let ch_space = "images/chara/space.png"
-document.body.style.backgroundImage = 'url("images/bg/bg_black.png")';
 
-set_texts(0,"こんにちわ！")
+set_texts(0,enemy_name + "対" + target_name + "の勝負開始！")
 
 
 name_preload.innerHTML = user_name

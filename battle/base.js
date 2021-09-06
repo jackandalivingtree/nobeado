@@ -1,11 +1,15 @@
 var game = localStorage.getItem("start_game")
 var user_name = localStorage.getItem("name")
+enemy_image.innerHTML = ('<img src="images/enemy/enemy_' + enemy_id + '.png" class="enemy_image">')
 
-
+//背景設定
+if(enemy_id >= 0&&enemy_id <= 2){
+    document.body.style.backgroundImage = 'url("images/bg/草原.jpg")';
+}
 
 if (game != 1){
     alert('内部エラーが発生しました。\nホームに戻ります。\n\nユーザーデータが読み込めませんでした。')
-    open( "../home.html", "_top" ) ;
+    location.href=("../home.html")
 }
 
 function menu_open(){
@@ -58,7 +62,6 @@ function hideImg(type){
     }
 }
 
-//シールド画像の設置 (target=1:味方のシールド/target=2:敵のシールド/type=1:20シールド/type=2:40シールド)
 function shield_set(target, type){
     if(target == 1){
         if(type == 1){
@@ -160,11 +163,18 @@ function action(type){
             shield_hide(2)
         }
     }else if(type == 2){
-        shieldtype = 1
-        mes = target_name + "に20シールドを付与した！"
-        shield_set(1,1)
-        text_box.innerHTML = '<a href="javascript:action_end(1)"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
-        hideImg()
+        if(shieldtype != 2){
+            shieldtype = 1
+            mes = target_name + "に20シールドを付与した！"
+            shield_set(1,1)
+            text_box.innerHTML = '<a href="javascript:action_end(1)"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
+            hideImg()
+        }else if(shieldtype == 2){
+            shieldtype = 2
+            mes = target_name + "は既に40シールドがあるので20シールドを付与できない！"
+            text_box.innerHTML = '<a href="javascript:action_end(1)"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
+            hideImg()
+        }
     }else if(type == 3){
         random = Math.floor( Math.random() * 99 ) + 1; //1～100の乱数
         if(random <= talk_stop_place){
@@ -247,11 +257,18 @@ function action(type){
                     shield_hide(2)
                 }
             }else if(random > magic_damage_s_place && random <= magic_shield_n_place){
-                shieldtype = 1
-                mes = target_name + "に20シールドを付与した！"
-                text_box.innerHTML = '<a href="javascript:action_end(1)"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
-                hideImg()
-                shield_set(1,1)
+                if(shieldtype != 2){
+                    shieldtype = 1
+                    mes = target_name + "に20シールドを付与した！"
+                    text_box.innerHTML = '<a href="javascript:action_end(1)"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
+                    hideImg()
+                    shield_set(1,1)
+                }else if(shieldtype == 2){
+                    shieldtype = 2
+                    mes = target_name + "に魔法で20シールドを付与しようとしたが既に40シールドを付与している！"
+                    text_box.innerHTML = '<a href="javascript:action_end(1)"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
+                    hideImg()
+                }
             }else if(random > magic_shield_n_place && random <= magic_shield_s_place){
                 shieldtype = 2
                 mes = target_name + "に40シールドを付与した！"
@@ -333,7 +350,6 @@ function action(type){
     }
 }
 
-//1:次敵
 function action_end(who){
     if(who == 1){
         if(death_check_enemy == 1||death_check == 1){
@@ -423,11 +439,18 @@ function enemy_action(){
             shield_hide(1)
         }
     }else if(random_action > enemy_attack_place&&random_action <= enemy_defend_place){
-        enemy_shieldtype = 1
-        mes = enemy_name + "が20シールドを付与した！"
-        text_box.innerHTML = '<a href="javascript:action_end(2)"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
-        hideImg()
-        shield_set(2,1)
+        if(enemy_shieldtype != 2){
+            enemy_shieldtype = 1
+            mes = enemy_name + "が20シールドを付与した！"
+            text_box.innerHTML = '<a href="javascript:action_end(2)"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
+            hideImg()
+            shield_set(2,1)
+        }else if(enemy_shieldtype == 2){
+            enemy_shieldtype = 2
+            mes = enemy_name + "が20シールドを付与しようとしたが、既に40シールドを付与していた！"
+            text_box.innerHTML = '<a href="javascript:action_end(2)"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
+            hideImg()
+        }
     }else if(random_action > enemy_defend_place&&random_action <= enemy_talk_place){
         random = Math.floor( Math.random() * 99 ) + 1; //1～100の乱数
         if(random <= talk_stop_place){
@@ -511,11 +534,18 @@ function enemy_action(){
                     shield_hide(1)
                 }
             }else if(random > magic_damage_s_place && random <= magic_shield_n_place){
-                enemy_shieldtype = 1
-                mes = enemy_name + "が20シールドを付与した！"
-                text_box.innerHTML = '<a href="javascript:action_end(2)"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
-                hideImg()
-                shield_set(2,1)
+                if(enemy_shieldtype != 2){
+                    enemy_shieldtype = 1
+                    mes = enemy_name + "が20シールドを付与した！"
+                    text_box.innerHTML = '<a href="javascript:action_end(2)"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
+                    hideImg()
+                    shield_set(2,1)
+                }else if(enemy_shieldtype == 2){
+                    enemy_shieldtype = 2
+                    mes = enemy_name + "が魔法で20シールをど付与しようとしたが既に40シールドを持っていた！"
+                    text_box.innerHTML = '<a href="javascript:action_end(2)"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
+                    hideImg()
+                }
             }else if(random > magic_shield_n_place && random <= magic_shield_s_place){
                 enemy_shieldtype = 2
                 mes = enemy_name + "が40シールドを付与した！"
@@ -585,7 +615,7 @@ function enemy_action(){
                 mes = enemy_name + "が40シールドを付与した！"
                 text_box.innerHTML = '<a href="javascript:action_end(2)"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
                 hideImg()
-                shield_set(1,2)
+                shield_set(2.2)
             }else if(random == 3){
                 enemy_hp = enemy_hp + 40
                 if (enemy_hp >= enemy_maxHp){
@@ -611,7 +641,6 @@ function setHp(){
     document.getElementById("enemyHp").value = enemy_hp
     enemyHpCount.innerHTML = enemy_hp
 }
-setHp()
 
 function debug_hp(who,hp){
     if(who == 1){
@@ -626,7 +655,6 @@ function debug_hp(who,hp){
     setHp()
 }
 
-
 function death(){
     if(death_check == 1){
         targer_hp = 0
@@ -640,3 +668,5 @@ function death(){
         console.log("プログラムとの戦いに敗れた...(Something went wrong...)")
     }
 }
+
+setHp()

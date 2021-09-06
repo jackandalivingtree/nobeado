@@ -26,7 +26,3 @@ var shieldtype = 0
 var death_check = 0
 var death_check_enemy = 0
 var action_stop = 0
-
-
-sessionStorage.setItem("enemy_id","0")
-sessionStorage.setItem("target_id","0")

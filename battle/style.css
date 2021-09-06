@@ -1,11 +1,12 @@
 body {
-    background-color: #777777;            /* 背景色 */
-    background-image: url("images/bg/default_bg_image.png"); /* 画像 */
     background-size: cover;               /* 全画面 */
+    background-image: url("images/bg/default_bg_image.png");
     background-attachment: fixed;         /* 固定 */
     background-position: center center;   /* 縦横中央 */
  }
- 
+
+
+
  .wrapper{
      min-height: 100vh;
      position: relative;
@@ -151,6 +152,15 @@ body {
     left:50%;
     transform:translate(-50%,-50%);
     width:100%;
+    text-shadow    : 
+       5px  5px 5px #ffffff,
+      -5px  5px 5px #ffffff,
+       5px -5px 5px #ffffff,
+      -5px -5px 5px #ffffff,
+       5px  0px 5px #ffffff,
+       0px  5px 5px #ffffff,
+      -5px  0px 5px #ffffff,
+       0px -5px 5px #ffffff;
 }
 
 .target_ui .target_hp_count{
@@ -159,6 +169,15 @@ body {
     left:50%;
     transform:translate(-50%,-50%);
     width:100%;
+      text-shadow    : 
+       5px  5px 5px #ffffff,
+      -5px  5px 5px #ffffff,
+       5px -5px 5px #ffffff,
+      -5px -5px 5px #ffffff,
+       5px  0px 5px #ffffff,
+       0px  5px 5px #ffffff,
+      -5px  0px 5px #ffffff,
+       0px -5px 5px #ffffff;
 }
 
 .enemy_shield{
@@ -172,4 +191,12 @@ body {
     position: absolute;
     width: 20%;
     bottom: calc(216px + 4%);
+}
+
+.enemy_image{
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    top: calc(70px + 10%);
+    left: 10%;
 }

@@ -3,14 +3,23 @@
 <meta charset="UTF-8">
 <link rel="manifest" href="install.json">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="format-detection" content="telephone=no">
 <meta name="apple-mobile-web-app-title" content="のべあど！">
 <meta name="viewport" content="width=250">
+<link rel="shortcut icon" href="icon.ico" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" href="apple-icon.png">
 <title>のべあど！</title>
 <meta name="description" content="ジャックと生きる木がゲームなった！？">
 
 <script type="text/javascript">
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+      .then((reg) => {
+        console.log('Service worker registered.', reg);
+      });
+}
+
 function modalOpen(){
   document.getElementById("modalArea").className = "modalBg modalBgOpen";
 }

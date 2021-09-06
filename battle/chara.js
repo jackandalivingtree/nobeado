@@ -4,8 +4,15 @@ var enemy_date = ["おにぎり",20,20,1,100,1,"からあげ",25,25,2,150,2,"う
 //味方のデータ(配列)
 var target_date = ["ジャック",20,20,100,1,"生きる木",35,15,150,2,"ひまわりたん",10,40,180,3]
 
+//データチェック
+if(sessionStorage.getItem("enemy_id") == null||sessionStorage.getItem("target_id") == null){
+    alert("内部エラーが発生しました。\nホームに戻ります。\n\nセッションストレージが読み取れませんでした。")
+    location.href=("../home.html")
+}
+
 //配列読み取り(敵)
 var enemy_id = parseInt(sessionStorage.getItem("enemy_id"))
+sessionStorage.removeItem("enemy_id")
 var enemy_name = enemy_date[6*enemy_id]
 var enemy_attack_power = enemy_date[6*enemy_id + 1]
 var enemy_defend_power = enemy_date[6*enemy_id + 2]
@@ -16,6 +23,7 @@ var enemy_skill = enemy_date[6*enemy_id + 5]
 
 //配列読み取り(味方)
 var target_id = parseInt(sessionStorage.getItem("target_id"))
+sessionStorage.removeItem("target_id")
 var target_name = target_date[5*target_id]
 var target_attack_power = target_date[5*target_id + 1]
 var target_defend_power = target_date[5*target_id + 2]
@@ -114,3 +122,4 @@ var enemy_attack_place = enemy_attack_per
 var enemy_defend_place = enemy_attack_place + enemy_defend_per
 var enemy_talk_place = enemy_defend_place + enemy_talk_per
 var enemy_magic_place = enemy_talk_place + enemy_magic_per
+

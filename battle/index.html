@@ -4,23 +4,34 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
+<link rel="shortcut icon" href="../icon.ico" type="image/vnd.microsoft.icon">
 <meta name="apple-mobile-web-app-title" content="のべあど！">
 <meta name="viewport" content="width=350">
 <title>のべあど！</title>
 <meta name="description" content="ジャックと生きる木がゲームなった！？">
-
-
+<link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
 </head>
-<body text="#ffffff" link="#ccccff">
+<body text="#000000" link="#ccccff"　vlink="#ff00ff">
 <center>
 <span class="main_text">
-<font size="+1"><b>[Season0]</b></font></br>
-<b>テストストーリー群</b></br>
-<img src="stories_pic/スライド1.PNG" class="story_img" onclick="location.href = ('battle.html')"><br><br>
-<hr>
-<font size="+1"><b>[Season1]</b></font></br>
-<b>のべあど！</b></br>
 
+<div id="enemy_group_1">
+  <font size="+1"><b>[食卓]</b></font></br>
+  <b>食べられずに捨てられた恨みが襲い掛かってきた。<br>
+  <a href="https://www.maff.go.jp/j/shokusan/sdgs/goal_12.html">持続可能な開発目標(SDGs)の12より</a></b></br>
+  <img src="images/enemy/enemy_0.png" class="story_img" onclick="open_story(0)"><br><br>
+  <img src="images/enemy/enemy_1.png" class="story_img" onclick="open_story(1)"><br><br>
+  <img src="images/enemy/enemy_2.png" class="story_img" onclick="open_story(2)"><br><br>
+</div>
+<hr>
+<!--
+<div id="enemy_group_2">
+  <font size="+1"><b>[タマシイ込めて]</b></font></br>
+  <b>あの黒いジャックがのべあどにやってきた！<br>
+  <a href="https://sites.google.com/view/jlt-home/%E4%BD%9C%E5%93%81%E4%B8%80%E8%A6%A7/jlt_2-00/jlt_2-30">「ジャックと生きる木　タマシイ込めて」より</a></b></br>
+  <img src="images/enemy/enemy_0.png" class="story_img" onclick="open_story(0)"><br><br>
+</div>
+-->
 </span>
 
 </center>
@@ -33,42 +44,86 @@
   <h1>ブラウザの設定によってJavaScriptが無効になっています。</h1>
   
   </noscript>
-  <font size="+3"><b>【ITEM SELECT】</b></font></br>
+  <font size="+3"><b>【ENEMY SELECT】</b></font></br>
   </center>
 </div>
  
 
 <script>
+var enemy_date = ["おにぎり",20,20,1,100,1,"からあげ",25,25,2,150,2,"うどん",30,30,3,200,3]
+var target_date = ["ジャック",20,20,100,1,"生きる木",35,15,150,2,"ひまわりたん",10,40,180,3]
+var enemy_id = undefined
+var target_id = undefined
+sessionStorage.removeItem("enemy_id")
+sessionStorage.removeItem("target_id")
+var enemy_select = undefined
+var target_select = undefined
 var game = localStorage.getItem("start_game")
-var name = localStorage.getItem("name")
-
-if(game != "1"){
-	location.href = "gen.html"
+if(game != 1){
+  location.href = ("../home.html")
 }
 
 function open_story(id){
+  enemy_select = 1
 	stid = id
+  var enemy_id = id
+  sessionStorage.setItem("enemy_id",enemy_id)
+  var enemy_name = enemy_date[6*enemy_id]
+  var enemy_attack_power = enemy_date[6*enemy_id + 1]
+  var enemy_defend_power = enemy_date[6*enemy_id + 2]
+  var enemy_action_pattern = enemy_date[6*enemy_id + 3]
+  var enemy_hp = enemy_date[6*enemy_id + 4]
+  var enemy_maxHp = enemy_hp
+  var enemy_skill = enemy_date[6*enemy_id + 5]
 	document.getElementById("desc").className = "modalBg modalBgOpen";
-	document.info_frame.location.href = "stories/info_" + stid + ".html";
+	enemy_data.innerHTML = "<table border='1' width='100%'><tr><td>名前</td><td>" + enemy_name + "</td></tr><tr><td>HP</td><td>" + enemy_maxHp + "</td></tr><tr><td>攻撃力</td><td>" + enemy_attack_power + "</td></tr><tr><td>防御力</td><td>" + enemy_defend_power + "</td></tr></table>"
 }
 
 function modalClose(id){
+  target_select = undefined
+  enemy_select = undefined
 	document.getElementById("desc").className = "modalBg modalBgClose";
 }
 
-function start_st(id){
-	location.href = 'stories/' + id + '.html'
+function start_st(){
+  if(target_select == 1&&enemy_select == 1){
+    location.href = 'battle.html'
+  }else if(target_select == undefined&&enemy_select == 1){
+    alert("味方キャラを選択してね！")
+  }else{
+    console.log("Unknown Error!")
+  }
+}
+
+function chara_select(){
+  target_select = 1
+  var target_id = document.getElementById("chara_pull").value
+  sessionStorage.setItem("target_id",target_id)
+  var target_name = target_date[5*target_id]
+  var target_attack_power = target_date[5*target_id + 1]
+  var target_defend_power = target_date[5*target_id + 2]
+  var target_hp = target_date[5*target_id + 3]
+  var target_maxHp = target_hp
+  var target_skill = target_date[5*target_id + 4]
+  target_data.innerHTML = "<table border='1' width='100%'><tr><td>HP</td><td>" + target_maxHp + "</td></tr><tr><td>攻撃力</td><td>" + target_attack_power + "</td></tr><tr><td>防御力</td><td>" + target_defend_power + "</td></tr></table>"
 }
 </script>
+
 <style type="text/css">
+a:link { color: #ccccff; }
+a:visited { color: #ff00ff; }
 body {
     background-color: #fff;            /* 背景色 */
     background-image: url("bg_main.jpg"); /* 画像 */
     background-size: cover;               /* 全画面 */
     background-attachment: fixed;         /* 固定 */
     background-position: center center;   /* 縦横中央 */
+    font-family   : "Sawarabi Gothic";
  }
- 
+
+ img {
+    border: 3px solid #fff;
+}
  /* === モーダル非表示（初期） ============================== */
 .modalNoDisp {
   display : none;
@@ -123,6 +178,7 @@ body {
   border-radius : 10px;
   font-size     : 16pt;
   text-align    : center;
+  font-family   : "Sawarabi Gothic";
 }
 /* === BODYのpaddingを調整する ============================== */
 body{
@@ -131,6 +187,7 @@ body{
 
 /* === ヘッダー ============================================= */
 .headerStyle{
+  color       :#fff;
   position    : fixed;
   top         : 0;
   left        : 0;
@@ -156,6 +213,7 @@ body{
 }
 
 .main_text{
+  color: #fff;
   text-shadow    : 
        2px  2px 1px #000000,
       -2px  2px 1px #000000,
@@ -180,7 +238,16 @@ body{
 <font color="#000000">
 <div id="desc" class="modalNoDisp">
   <div class="modalWindow">
-    <iframe src="about:blank" style="height: 75vh; width: 87vw;" name="info_frame"></iframe></br>
+    <div>・敵の情報</div>
+    <div id="enemy_data"></div><br>
+    <div>・キャラ選択</div>
+    <select id="chara_pull" onchange="chara_select()">
+      <option hidden>選択してね</option>
+      <option value="0">ジャック</option>
+      <option value="1">生きる木</option>
+      <option value="2">ひまわりたん</option>
+    </select>
+    <div id="target_data"></div><br>
     <div><input type="button" value="閉じる" onclick="modalClose( stid )"><input type="button" value="スタート" onclick="start_st( stid )"></div>
   </div>
 </div>
