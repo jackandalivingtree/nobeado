@@ -15,11 +15,11 @@ function menu_close(){
 }
 
 function menu_top(){
-    location.href = ('/jlt/story_select.html')
+    location.href = ('../story_select.html')
 }
 
 function menu_skip(){
-    location.href = ('/jlt/story_select.html')
+    location.href = ('../story_select.html')
 }
 
 function set_texts(type){
