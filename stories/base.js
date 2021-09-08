@@ -1,7 +1,7 @@
 var game = localStorage.getItem("start_game")
 var name = localStorage.getItem("name")
 
-if (cookie_game != 1){
+if (game != 1){
     alert('内部エラーが発生しました。\nホームに戻ります。\n\nユーザーデータが読み込めませんでした。')
     open( "../home.html", "_top" ) ;
 }

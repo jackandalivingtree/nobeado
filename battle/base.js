@@ -2,6 +2,8 @@ var game = localStorage.getItem("start_game")
 var user_name = localStorage.getItem("name")
 enemy_image.innerHTML = ('<img src="images/enemy/enemy_' + enemy_id + '.png" class="enemy_image">')
 
+
+
 //背景設定
 if(enemy_id >= 0&&enemy_id <= 2){
     document.body.style.backgroundImage = 'url("images/bg/草原.jpg")';
@@ -13,7 +15,7 @@ if (game != 1){
 }
 
 function menu_open(){
-    menu_img.innerHTML = '<a href="javascript:menu_close()"><img src="images/sprite/back_menu.png" class="back_menu_image" id="menu_image_for_height"></a><a href="javascript:menu_top()"><img src="images/sprite/top_menu.png" class="top_menu_image"></a><a href="javascript:menu_skip()"><img src="images/sprite/skip_menu.png" class="skip_menu_image"></a>'
+    menu_img.innerHTML = '<a href="javascript:menu_close()"><img src="images/sprite/close_menu.png" class="back_menu_image" id="menu_image_for_height"></a><a href="javascript:menu_top()"><img src="images/sprite/exit.png" class="top_menu_image"></a>'
 }
 
 function menu_close(){
@@ -21,27 +23,23 @@ function menu_close(){
 }
 
 function menu_top(){
-    location.href = ('/jlt/story_select.html')
-}
-
-function menu_skip(){
-    location.href = ('/jlt/story_select.html')
+    location.href = ('index.html')
 }
 
 function showImg(type){
     if(type == 1){
-        attack_img.innerHTML = '<a href="javascript:action(1)"><img src="images/sprite/attack.png" class="bt_attack"></a>'
+        attack_img.innerHTML = '<a href="javascript:cushion(1)"><img src="images/sprite/attack.png" class="bt_attack"></a>'
     }else if(type == 1){
-        defend_img.innerHTML = '<a href="javascript:action(2)"><img src="images/sprite/defend.png" class="bt_defend"></a>'
+        defend_img.innerHTML = '<a href="javascript:cushion(2)"><img src="images/sprite/defend.png" class="bt_defend"></a>'
     }else if(type == 1){
-        talk_img.innerHTML = '<a href="javascript:action(3)"><img src="images/sprite/talk.png" class="bt_talk"></a>'
+        talk_img.innerHTML = '<a href="javascript:cushion(3)"><img src="images/sprite/talk.png" class="bt_talk"></a>'
     }else if(type == 1){
-        magic_img.innerHTML = '<a href="javascript:action(4)"><img src="images/sprite/magic.png" class="bt_magic"></a>'
+        magic_img.innerHTML = '<a href="javascript:cushion(4)"><img src="images/sprite/magic.png" class="bt_magic"></a>'
     }else{
-        attack_img.innerHTML = '<a href="javascript:action(1)"><img src="images/sprite/attack.png" class="bt_attack"></a>'
-        defend_img.innerHTML = '<a href="javascript:action(2)"><img src="images/sprite/defend.png" class="bt_defend"></a>'
-        talk_img.innerHTML = '<a href="javascript:action(3)"><img src="images/sprite/talk.png" class="bt_talk"></a>'
-        magic_img.innerHTML = '<a href="javascript:action(4)"><img src="images/sprite/magic.png" class="bt_magic"></a>'
+        attack_img.innerHTML = '<a href="javascript:cushion(1)"><img src="images/sprite/attack.png" class="bt_attack"></a>'
+        defend_img.innerHTML = '<a href="javascript:cushion(2)"><img src="images/sprite/defend.png" class="bt_defend"></a>'
+        talk_img.innerHTML = '<a href="javascript:cushion(3)"><img src="images/sprite/talk.png" class="bt_talk"></a>'
+        magic_img.innerHTML = '<a href="javascript:cushion(4)"><img src="images/sprite/magic.png" class="bt_magic"></a>'
     }
 }
 
@@ -104,6 +102,20 @@ function exit(){
     location.href = ('index.html')
 }
 
+function cushion(type){
+    if(type == 1){
+        mes = target_name + "の攻撃！"
+    }else if(type == 2){
+        mes = target_name + "がシールドを使う！"
+    }else if(type == 3){
+        mes = target_name + "が会話を始める！"
+    }else if(type == 4){
+        mes = target_name + "の魔法！"
+    }
+    text_box.innerHTML = '<a href="javascript:action(' + type + ')"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
+    hideImg()
+}
+
 function action(type){
     if(type == 1){
         if (enemy_shieldtype == 0){
@@ -116,13 +128,12 @@ function action(type){
             if(damage == 0){
                 mes = enemy_name + "にダメージが入らなかった！"
             }
-            text_box.innerHTML = '<a href="javascript:action_end(1)"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
-            hideImg()
             if(enemy_hp <= 0){
                 death_check_enemy = 1
                 enemy_hp = 0
             }
             setHp()
+            text_box.innerHTML = '<a href="javascript:action_end(1)"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
         }else if(enemy_shieldtype == 1){
             damage = Math.floor((target_attack_power*attack_mag)-((target_attack_power*attack_mag)*((enemy_defend_power*defend_mag_enemy)/100))) -20
             if(damage <= 0){
@@ -268,6 +279,7 @@ function action(type){
                     mes = target_name + "に魔法で20シールドを付与しようとしたが既に40シールドを付与している！"
                     text_box.innerHTML = '<a href="javascript:action_end(1)"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
                     hideImg()
+                    shield_set(1,2)
                 }
             }else if(random > magic_shield_n_place && random <= magic_shield_s_place){
                 shieldtype = 2
@@ -355,20 +367,48 @@ function action_end(who){
         if(death_check_enemy == 1||death_check == 1){
             death()
         }else if(action_stop == 1){
-            mes = enemy_name + "は動けない！\n" + target_name + "はどうする？"
+            mes = enemy_name + "は動けない！<br>" + target_name + "はどうする？"
             text_box.innerHTML = '<img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p>'
             showImg()
             action_stop = 0
         }else{
-            mes = enemy_name + "のターン！"
-            text_box.innerHTML = '<a href="javascript:enemy_action()"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
+            var random_action = Math.floor( Math.random() * 9 ) + 1;
+            console.log(random_action,enemy_attack_place,enemy_defend_place,enemy_talk_place,enemy_magic_place)
+            if(random_action <= enemy_attack_place){
+                action_type = 1
+                mes = enemy_name + "の攻撃！"
+            }else if(random_action > enemy_attack_place&&random_action <= enemy_defend_place){
+                action_type = 2
+                mes = enemy_name + "がシールドを使う！"
+            }else if(random_action > enemy_defend_place&&random_action <= enemy_talk_place){
+                action_type = 3
+                mes = enemy_name + "が会話を始める！"
+            }else if(random_action > enemy_talk_place&&random_action <= enemy_magic_place){
+                action_type = 4
+                mes = enemy_name + "の魔法！"
+            }
+            text_box.innerHTML = '<a href="javascript:enemy_action(' + action_type + ')"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
         }
     }else if(who == 2){
         if(death_check_enemy == 1||death_check == 1){
             death()
         }else if(action_stop == 2){
-            mes = target_name + "は動けない！\n" + enemy_name + "のターン！"
-            text_box.innerHTML = '<a href="javascript:enemy_action()"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
+            var random_action = Math.floor( Math.random() * 9 ) + 1;
+            console.log(random_action,enemy_attack_place,enemy_defend_place,enemy_talk_place,enemy_magic_place)
+            if(random_action <= enemy_attack_place){
+                action_type = 1
+                mes = target_name + "は動けない！<br>" + enemy_name + "の攻撃！"
+            }else if(random_action > enemy_attack_place&&random_action <= enemy_defend_place){
+                action_type = 2
+                mes = target_name + "は動けない！<br>" + enemy_name + "がシールドを使う！"
+            }else if(random_action > enemy_defend_place&&random_action <= enemy_talk_place){
+                action_type = 3
+                mes = target_name + "は動けない！<br>" + enemy_name + "が会話を始める！"
+            }else if(random_action > enemy_talk_place&&random_action <= enemy_magic_place){
+                action_type = 4
+                mes = target_name + "は動けない！<br>" + enemy_name + "の魔法！"
+            }
+            text_box.innerHTML = '<a href="javascript:enemy_action(' + action_type + ')"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
             hideImg()
             action_stop = 0
         }else{
@@ -379,10 +419,8 @@ function action_end(who){
     }
 }
 
-function enemy_action(){
-    var random_action = Math.floor( Math.random() * 9 ) + 1;
-    console.log(random_action,enemy_attack_place,enemy_defend_place,enemy_talk_place,enemy_magic_place)
-    if(random_action <= enemy_attack_place){
+function enemy_action(type){
+    if(type == 1){
         if (shieldtype == 0){
             damage = Math.floor((enemy_attack_power*attack_mag_enemy)-((enemy_attack_power*attack_mag_enemy)*((target_defend_power*defend_mag)/100)))
             if(damage <= 0){
@@ -432,13 +470,13 @@ function enemy_action(){
             shieldtype = 0
             text_box.innerHTML = '<a href="javascript:action_end(2)"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
             hideImg()
-            if(targer_hp <= 0){
+            if(target_hp <= 0){
                 death_check = 1
             }
             setHp()
             shield_hide(1)
         }
-    }else if(random_action > enemy_attack_place&&random_action <= enemy_defend_place){
+    }else if(type == 2){
         if(enemy_shieldtype != 2){
             enemy_shieldtype = 1
             mes = enemy_name + "が20シールドを付与した！"
@@ -451,7 +489,7 @@ function enemy_action(){
             text_box.innerHTML = '<a href="javascript:action_end(2)"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
             hideImg()
         }
-    }else if(random_action > enemy_defend_place&&random_action <= enemy_talk_place){
+    }else if(type == 3){
         random = Math.floor( Math.random() * 99 ) + 1; //1～100の乱数
         if(random <= talk_stop_place){
             action_stop = 2
@@ -473,7 +511,7 @@ function enemy_action(){
             text_box.innerHTML = '<a href="javascript:action_end(2)"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
             hideImg()
         }
-    }else if(random_action > enemy_talk_place&&random_action <= enemy_magic_place){
+    }else if(type == 4){
         if(magic_buff_enemy == 0){
             random = Math.floor( Math.random() * 99 ) + 1; //1～100の乱数
             if(random <= magic_damage_n_place){//20ダメージ魔法
@@ -615,7 +653,7 @@ function enemy_action(){
                 mes = enemy_name + "が40シールドを付与した！"
                 text_box.innerHTML = '<a href="javascript:action_end(2)"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
                 hideImg()
-                shield_set(2.2)
+                shield_set(2,2)
             }else if(random == 3){
                 enemy_hp = enemy_hp + 40
                 if (enemy_hp >= enemy_maxHp){
