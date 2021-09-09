@@ -15,7 +15,7 @@ function menu_close(){
 }
 
 function menu_top(){
-    location.href = ('../story_select.html')
+    location.href = ('../home.html')
 }
 
 function menu_skip(){

@@ -16,6 +16,7 @@
             if(ary == undefined||splited == undefined||name_key == undefined||name_value == undefined){
                 throw new Error('Prevented error: The assigned value is invalid.')
             }
+            console.log(name_key, name_value)
             localStorage.setItem(name_key, name_value)
             l = l - 1
             result.shift();

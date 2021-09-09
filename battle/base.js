@@ -699,9 +699,15 @@ function death(){
         mes = enemy_name + "との戦いに敗れた...<br>（ここにいつか報酬とかが追加される予定です...）"
         text_box.innerHTML = '<a href="javascript:location.href=(\'index.html\')"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
     }else if(death_check_enemy == 1){
-        enemy_hp = 0
-        mes = enemy_name + "との戦いに勝利した！<br>（ここにいつか報酬とかが追加される予定です...）"
-        text_box.innerHTML = '<a href="javascript:location.href=(\'index.html\')"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
+        if(enemy_id == 2){
+            enemy_hp = 0
+            mes = enemy_name + "は弱っている..."
+            text_box.innerHTML = '<a href="javascript:location.href=(\'../stories/bt_1.html\')"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
+        }else{
+            enemy_hp = 0
+            mes = enemy_name + "との戦いに勝利した！<br>（ここにいつか報酬とかが追加される予定です...）"
+            text_box.innerHTML = '<a href="javascript:location.href=(\'index.html\')"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
+        }
     }else{
         console.log("プログラムとの戦いに敗れた...(Something went wrong...)")
     }
