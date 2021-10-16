@@ -20,4 +20,10 @@
     width: 50vw;
     font-size: 8vw;
     font-family: "Sawarabi Gothic", serif;
+    appearance: none;
+    border: 0;
+    border-radius: 10px;
+    background: rgb(243, 243, 243);
+    color: #3276ff;
+    padding: 8px 16px;
 }

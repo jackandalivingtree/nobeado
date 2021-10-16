@@ -1,0 +1,76 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-title" content="のべあど！">
+<link rel="shortcut icon" href="icon.ico" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" href="apple-icon.png" sizes="192x192"/>
+<title>のべあど！</title>
+<meta name="description" content="ジャックと生きる木がゲームなった！？">
+</head>
+<body>
+<a href="javascript:location.href = ('home.html')">&lt;Return</a><br><br><br><br>
+・localStorage<br><br>
+start_game:<br>
+<input type="text" id="start_game_ip"></input><br><br>
+name:<br>
+<input type="text" id="name_ip"></input><br><br>
+user_exp:<br>
+<input type="text" id="user_exp_ip"></input><br><br>
+user_money:<br>
+<input type="text" id="user_money_ip"></input><br><br>
+dev:<br>
+<input type="text" id="dev_ip"></input><br><br><br><br>
+
+・sessionStorage<br><br>
+story_id:<br>
+<input type="text" id="story_id_ip"></input><br><br>
+target_id:<br>
+<input type="text" id="target_id_ip"></input><br><br>
+enemy_id:<br>
+<input type="text" id="enemy_id_ip"></input><br><br><br><br>
+
+<a href="javascript:change()">Change all</a>
+<script>
+var start_game = localStorage.getItem("start_game")
+var name_st = localStorage.getItem("name")
+var dev = localStorage.getItem("dev")
+var user_exp = localStorage.getItem("user_exp")
+var user_money = localStorage.getItem("user_money")
+var story_id = sessionStorage.getItem("story_id")
+var target_id = sessionStorage.getItem("target_id")
+var enemy_id = sessionStorage.getItem("enemy_id")
+document.getElementById("start_game_ip").value = start_game
+document.getElementById("name_ip").value = decodeURI(name_st)
+document.getElementById("dev_ip").value = dev
+document.getElementById("user_exp_ip").value = user_exp
+document.getElementById("user_money_ip").value = user_money
+document.getElementById("story_id_ip").value = story_id
+document.getElementById("target_id_ip").value = target_id
+document.getElementById("enemy_id_ip").value = enemy_id
+
+function change(){
+    start_game = document.getElementById("start_game_ip").value
+    name_st = encodeURI(document.getElementById("name_ip").value)
+    dev = document.getElementById("dev_ip").value
+    user_exp = document.getElementById("user_exp_ip").value
+    user_money = document.getElementById("user_money_ip").value
+    story_id = document.getElementById("story_id_ip").value
+    target_id = document.getElementById("target_id_ip").value
+    enemy_id = document.getElementById("enemy_id_ip").value
+    localStorage.setItem("start_game",start_game)
+    localStorage.setItem("name",name_st)
+    localStorage.setItem("dev",dev)
+    localStorage.setItem("user_exp",user_exp)
+    localStorage.setItem("user_money",user_money)
+    sessionStorage.setItem("story_id",story_id)
+    sessionStorage.setItem("target_id",target_id)
+    sessionStorage.setItem("enemy_id",enemy_id)
+    alert("Set your flags.")
+    location.reload(true)
+}
+</script>
+</body>
+</html>

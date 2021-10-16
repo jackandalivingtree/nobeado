@@ -37,7 +37,7 @@
 </center>
 
 <div id="sampleHeader" class="headerStyle">
-  <a href="javascript:location.href=('../home.html')">&lt;Return</a>
+  <a href="javascript:location.replace('../home.html')">&lt;Return</a>
   <center>
   <noscript>
   
@@ -87,7 +87,7 @@ function modalClose(id){
 
 function start_st(){
   if((document.getElementById("chara_pull").value) != "select"&&enemy_select == 1){
-    location.href = 'battle.html'
+    location.replace('battle.html')
   }else if((document.getElementById("chara_pull").value) == "select"&&enemy_select == 1){
     alert("味方キャラを選択してね！")
   }else{

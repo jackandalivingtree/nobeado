@@ -17,7 +17,7 @@
 <span class="main_text">
 <font size="+1"><b>[Season0]</b></font></br>
 <b>テストストーリー</b></br>
-<img src="stories_pic/season0/TEST_STORY4.png" class="story_img" onclick="open_story(6)"><br><br>
+<img src="stories_pic/season0/TEST_STORY4.png" class="story_img" onclick="open_story('6')"><br><br>
 <hr>
 <font size="+1"><b>[Season1](開発中)</b></font></br>
 <b>はじまり（仮称）</b></br>
@@ -28,7 +28,7 @@
 </center>
 
 <div id="sampleHeader" class="headerStyle">
-  <a href="javascript:location.href=('home.html')">&lt;Return</a>
+  <a href="javascript:location.replace('home.html')">&lt;Return</a>
   <center>
   <noscript>
   
@@ -59,7 +59,8 @@ function modalClose(id){
 }
 
 function start_st(id){
-	location.href = 'stories/' + id + '.html'
+  sessionStorage.setItem("story_id",id)
+	location.replace('stories/base.html')
 }
 </script>
 <style type="text/css">
@@ -177,13 +178,21 @@ body{
                 -moz-user-select:none;
                 user-select:none;
 }
+.c-button {
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  background: rgb(243, 243, 243);
+  color: #3276ff;
+  padding: 8px 16px;
+}
 </style>
 
 <font color="#000000">
 <div id="desc" class="modalNoDisp">
   <div class="modalWindow">
     <iframe src="about:blank" style="height: 75vh; width: 87vw;" name="info_frame"></iframe></br>
-    <div><input type="button" value="閉じる" onclick="modalClose( stid )"><input type="button" value="スタート" onclick="start_st( stid )"></div>
+    <div><input type="button" value="閉じる" onclick="modalClose( stid )" class="c-button"><input type="button" value="スタート" onclick="start_st( stid )" class="c-button"></div>
   </div>
 </div>
 

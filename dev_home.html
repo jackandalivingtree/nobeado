@@ -1,0 +1,112 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-title" content="のべあど！">
+<meta name="viewport" content="width=250">
+<link rel="shortcut icon" href="icon.ico" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" href="apple-icon.png" sizes="192x192"/>
+<title>のべあど！</title>
+<meta name="description" content="ジャックと生きる木がゲームなった！？">
+
+</head>
+<body>
+    <a href="javascript:location.href=('home.html')">&lt;Return</a>
+<center>
+<noscript>
+
+<h1>JavaScript is disabled on your browser.</h1>
+
+</noscript>
+<font size="+1"><b>【DEV_MENU】</b></font></br>
+<div class="status_name" id="name_status">name:<b><span id="nm">[UserNAME]</span></b></div>
+<div class="status_exp" id="exp_status">user_exp:<b><span id="exp_sp">0</span></b></div>
+<div class="status_money" id="money_status">user_money:<b><span id="money_sp">0</span></b></div>
+<img src="season_beta.png" width="200" height="200" style="pointer-events: none;"></br>
+<h4>If you aren't developer, please select Initialize data(home) or Initialize data(index)!!!!!!</h4>
+<h4>Don't show this page to normal user!!!!!</h4>
+<div>Modes</div>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'story_select.html'">Story mode</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'battle/index.html'">Battle mode</button><br>
+<br>
+<div>Utilities</div>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'change_name.html'">Change name</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'save_key.html'">Copy data</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'del.html'">Initialize data(home)</button><br>
+<br>
+<div>Debug links</div>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'stories/base.html'">Story(base.html)</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'battle/battle.html'">Battle(battle.html)</button><br>
+<br>
+<div>Debug utilities</div>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'change_flag.html'">Flag change(session/local)</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'gen.html'">User generate</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'user_log.html'">Login/SignUp</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'stories/story_maker.html'">Story maker</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'del_index.html'">Initialize data(index)</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'load_url.html'">URI_loader(can't use)</button><br>
+</center>
+<style>
+.box2 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: #ffffff;/*文字色*/
+    background: rgb(255, 225, 225);
+    border: solid 3px #ffc1c1;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+.box2 a {
+    margin: 0; 
+    padding: 0;
+}
+.c-button {
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  background: rgb(243, 243, 243);
+  color: #3276ff;
+  padding: 8px 16px;
+}
+.status_name{
+    font-size: 12.5px;
+    width: 230px; /* この幅を超えると省略 */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.status_exp{
+    font-size: 12.5px;
+    width: 230px; /* この幅を超えると省略 */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.status_money{
+    font-size: 12.5px;
+    width: 230px; /* この幅を超えると省略 */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+</style>
+<script>
+var game = localStorage.getItem("start_game")
+var stname = localStorage.getItem("name")
+var dev = localStorage.getItem("dev")
+var exp = localStorage.getItem("user_exp")
+var money = localStorage.getItem("user_money")
+
+if(dev != 1){
+    alert("You don't have dev flag!!!\nIf you are developer,please use developer tool and turn on flag(localStorage.setItem('dev','1')).")
+	location.href = "index.html"
+}
+
+nm.innerHTML = decodeURI(name)
+exp_sp.innerHTML = exp
+money_sp.innerHTML = money
+</script>
+</body>
+</html>

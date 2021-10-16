@@ -1,5 +1,25 @@
 var game = localStorage.getItem("start_game")
-var name = localStorage.getItem("name")
+var stname = localStorage.getItem("name")
+var story_page = 1
+var cname = "Name"
+var cmes = "mes"
+var cimg = "img.png"
+let ch_jack = "images/chara/jack.png"
+let ch_tree = "images/chara/tree.png"
+let ch_space = "images/chara/space.png"
+aspect_raito = document.body.clientWidth / document.body.clientHeight
+if(aspect_raito >= 0.8){
+    alert("推奨されてない画面比率です。\n一部画面UIの表示がおかしくなる場合があります。")
+}
+
+function modalOpen(){
+	document.getElementById("modalArea").className = "modalBg modalBgOpen";
+}
+
+const modalClose = () => {
+	location.replace("javascript:next" + story_page + "()")
+	document.getElementById("modalArea").className = "modalBg modalBgClose";
+}
 
 if (game != 1){
     alert('内部エラーが発生しました。\nホームに戻ります。\n\nユーザーデータが読み込めませんでした。')
@@ -15,11 +35,11 @@ function menu_close(){
 }
 
 function menu_top(){
-    location.href = ('../home.html')
+    location.replace('../home.html')
 }
 
 function menu_skip(){
-    location.href = ('../story_select.html')
+    location.replace('../story_select.html')
 }
 
 function set_texts(type){
@@ -36,5 +56,5 @@ function set_texts(type){
 }
 
 function exit(){
-    location.href = ('../story_select.html')
+    location.replace('../story_select.html')
 }

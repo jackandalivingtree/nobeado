@@ -21,7 +21,17 @@
             <input type="radio" name="type_s" value="0">0:終了
             <input type="radio" name="type_s" value="1">1:モーダル<br><br>
             </form>
-            <button onclick="create_set()">生成</button>
+            <button onclick="create_set()" class="c-button">生成</button>
             <pre id="mes"></pre>
+            <style>
+                .c-button {
+                  appearance: none;
+                  border: 0;
+                  border-radius: 10px;
+                  background: rgb(243, 243, 243);
+                  color: #3276ff;
+                  padding: 8px 16px;
+                }
+            </style>
     </body>
 </html>

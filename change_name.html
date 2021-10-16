@@ -18,7 +18,7 @@
 <div style="font-size: 8vw; font-family: Sawarabi Gothic;"><b>名前変更</b></div>
 <div style="font-size: 7vw; font-family: Sawarabi Gothic;">ユーザー名</div>
 <input type="text" id="name" style="width: 90vw; height: 10vh; font-size: 8vw; border: 5px #000000 double;"></input></br>
-<button onclick="generate()"><div style="font-size: 7vw; font-family: Sawarabi Gothic;">登録</div></button>
+<button onclick="generate()" class="c-button"><div style="font-size: 7vw; font-family: Sawarabi Gothic;">登録</div></button>
 
 <script>
 
@@ -42,6 +42,15 @@ function generate(){
 	}
 }
 </script>
-
+<style>
+	.c-button {
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  background: rgb(243, 243, 243);
+  color: #3276ff;
+  padding: 8px 16px;
+}
+</style>
 </body>
 </html>

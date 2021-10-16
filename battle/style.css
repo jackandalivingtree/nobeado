@@ -184,14 +184,14 @@ body {
 .enemy_shield{
     position: absolute;
     width: 20%;
-    top: calc(70px + 6%);
+    top: calc(20vw + 8%);
 }
 
 
 .target_shield{
     position: absolute;
     width: 20%;
-    bottom: calc(216px + 4%);
+    bottom: calc(56vw + 8%);
 }
 
 .enemy_image{

@@ -1,5 +1,5 @@
 function registor(){
-    location.href = ("gen.html")
+    location.replace("gen.html")
 }
 
 // key=1/name=%a2%b9%27/story=1
@@ -25,7 +25,7 @@ function login(){
             l = l - 1
             result.shift();
         }
-        location.href = ('home.html')
+        location.replace('home.html')
     }catch(e){
         if(e.message == "Failed to execute 'atob' on 'Window': The string to be decoded is not correctly encoded."){
             errormes = "キーの復元に失敗しました"

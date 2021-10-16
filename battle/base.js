@@ -1,8 +1,13 @@
 var game = localStorage.getItem("start_game")
 var user_name = localStorage.getItem("name")
 enemy_image.innerHTML = ('<img src="images/enemy/enemy_' + enemy_id + '.png" class="enemy_image">')
-
-
+var getdamage = 0
+var setdamage = 0
+var actiontime = 0
+aspect_raito = document.body.clientWidth / document.body.clientHeight
+if(aspect_raito >= 0.8){
+    alert("推奨されてない画面比率です。\n一部画面UIの表示がおかしくなる場合があります。")
+}
 
 //背景設定
 if(enemy_id >= 0&&enemy_id <= 2){
@@ -23,7 +28,7 @@ function menu_close(){
 }
 
 function menu_top(){
-    location.href = ('index.html')
+    location.replace('index.html')
 }
 
 function showImg(type){
@@ -117,6 +122,7 @@ function cushion(type){
 }
 
 function action(type){
+    damage = 0
     if(type == 1){
         if (enemy_shieldtype == 0){
             damage = Math.floor((target_attack_power*attack_mag)-((target_attack_power*attack_mag)*((enemy_defend_power*defend_mag_enemy)/100)))
@@ -360,6 +366,7 @@ function action(type){
             }
         }
     }
+    setdamage = setdamage + damage
 }
 
 function action_end(who){
@@ -367,6 +374,7 @@ function action_end(who){
         if(death_check_enemy == 1||death_check == 1){
             death()
         }else if(action_stop == 1){
+            actiontime = actiontime + 1
             mes = enemy_name + "は動けない！<br>" + target_name + "はどうする？"
             text_box.innerHTML = '<img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p>'
             showImg()
@@ -412,6 +420,7 @@ function action_end(who){
             hideImg()
             action_stop = 0
         }else{
+            actiontime = actiontime + 1
             mes = target_name + "はどうする？"
             text_box.innerHTML = '<img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p>'
             showImg()
@@ -420,6 +429,7 @@ function action_end(who){
 }
 
 function enemy_action(type){
+    damage = 0
     if(type == 1){
         if (shieldtype == 0){
             damage = Math.floor((enemy_attack_power*attack_mag_enemy)-((enemy_attack_power*attack_mag_enemy)*((target_defend_power*defend_mag)/100)))
@@ -666,6 +676,7 @@ function enemy_action(type){
             }
         }
     }
+    getdamage = getdamage + damage
 }
 
 function setHp(){
@@ -695,18 +706,31 @@ function debug_hp(who,hp){
 
 function death(){
     if(death_check == 1){
-        targer_hp = 0
-        mes = enemy_name + "との戦いに敗れた...<br>（ここにいつか報酬とかが追加される予定です...）"
-        text_box.innerHTML = '<a href="javascript:location.href=(\'index.html\')"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
+        get_exp = Math.floor(((setdamage + getdamage)*(actiontime*0.2)+200)*0.5)
+        target_hp = 0
+        mes = enemy_name + "との戦いに敗れた...<br>" + get_exp + "EXPを獲得した。"
+        now_exp = parseInt(localStorage.getItem("user_exp"),10)
+        set_exp = get_exp + now_exp
+        localStorage.setItem("user_exp", String(set_exp))
+        text_box.innerHTML = '<a href="javascript:location.replace(\'index.html\')"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
     }else if(death_check_enemy == 1){
         if(enemy_id == 2){
             enemy_hp = 0
             mes = enemy_name + "は弱っている..."
-            text_box.innerHTML = '<a href="javascript:location.href=(\'../stories/bt_1.html\')"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
+            sessionStorage.setItem("story_id","bt_1")
+            text_box.innerHTML = '<a href="javascript:location.replace(\'../stories/base.html\')"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
         }else{
+            get_exp = Math.floor(((setdamage + getdamage)*(actiontime*0.2)+200)*2)
+            get_money = Math.floor((setdamage)*(actiontime*0.2)*0.75)
             enemy_hp = 0
-            mes = enemy_name + "との戦いに勝利した！<br>（ここにいつか報酬とかが追加される予定です...）"
-            text_box.innerHTML = '<a href="javascript:location.href=(\'index.html\')"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
+            mes = enemy_name + "との戦いに勝利した！<br>" + get_exp + "EXPと" + get_money + "MONEYをゲットした！"
+            now_exp = parseInt(localStorage.getItem("user_exp"),10)
+            set_exp = get_exp + now_exp
+            now_money = parseInt(localStorage.getItem("user_money"),10)
+            set_money = get_money + now_money
+            localStorage.setItem("user_exp", String(set_exp))
+            localStorage.setItem("user_money", String(set_money))
+            text_box.innerHTML = '<a href="javascript:location.replace(\'index.html\')"><img src="images/sprite/text_box.png"><p id="message" class="mes">' + mes + '</p></a>'
         }
     }else{
         console.log("プログラムとの戦いに敗れた...(Something went wrong...)")

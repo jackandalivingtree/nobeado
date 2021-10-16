@@ -13,6 +13,10 @@
 <meta name="description" content="ジャックと生きる木がゲームなった！？">
 
 <script type="text/javascript">
+if(window.matchMedia('(display-mode: standalone)').matches != true){
+  location.href = "install.html"
+}
+
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js')
       .then((reg) => {
@@ -38,11 +42,12 @@ function modalClose(){
 
 </noscript>
 <font size="+1.5"><b>ジャックと生きる木　のべあど！</br>
-Ver:v0.9.3</b></font></br>
+Ver:v0.9.4</b></font></br>
 <img src="season_beta.png" width="200" height="200" style="pointer-events: none;"></br>
-<button style="width: 200px; height: 50px;" onclick="location.href = 'first.html'">メインメニュー</button></br>
-<button style="width: 200px; height: 50px;" onclick="modalOpen()">ニュース</button></br><br>
-<button style="width: 200px; height: 30px;" onclick="location.href = 'del_index.html'">初期化</button></br>
+<button style="width: 200px; height: 50px;" onclick="location.href = 'first.html'" class="c-button">メインメニュー</button></br>
+<button style="width: 200px; height: 50px;" onclick="modalOpen()" class="c-button">ニュース</button></br><br>
+<button style="width: 200px; height: 50px;" onclick="location.href = 'https://sites.google.com/view/jlt-home'" class="c-button">メインストーリーを読む</button></br><br>
+<button style="width: 200px; height: 30px;" onclick="location.href = 'del_index.html'" class="c-button">初期化</button></br>
 </center>
 <style type="text/css">
 div.client {font-size: xx-small;}
@@ -118,6 +123,15 @@ div.client {font-size: xx-small;}
 @keyframes modalCloseAnime {                      /* 中心→下 */
    0% { top : 50%  }
  100% { top : 150% }
+}
+
+.c-button {
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  background: rgb(243, 243, 243);
+  color: #3276ff;
+  padding: 8px 16px;
 }
 </style>
 <div id="modalArea" class="modalNoDisp">

@@ -18,8 +18,8 @@
 <h6>すべてのセーブデータを初期化出来ます。</h6>
 初期化してもよろしいですか？
 </br>
-<button onclick="delet()">初期化</button>
-<button onclick="location.href = 'index.html'">もどる</button>
+<button onclick="delet()" class="c-button">初期化</button>
+<button onclick="location.href = 'index.html'" class="c-button">もどる</button>
 
 <script>
 function delet(){
@@ -34,6 +34,15 @@ function delet(){
 	}
 
 </script>
-
+<style>
+	.c-button {
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  background: rgb(243, 243, 243);
+  color: #3276ff;
+  padding: 8px 16px;
+}
+</style>
 </body>
 </html>

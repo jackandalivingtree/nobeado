@@ -13,17 +13,17 @@
 
 </head>
 <body>
-<a href="javascript:location.href = ('user_log.html')" style="font-size: 6vw; font-family: Sawarabi Gothic;">&lt;Return</a>
+<a href="javascript:location.replace('user_log.html')" style="font-size: 6vw; font-family: Sawarabi Gothic;">&lt;Return</a>
 <center>
 <div style="font-size: 8vw; font-family: Sawarabi Gothic;"><b>ユーザー登録</b></div>
 <div style="font-size: 4vw; font-family: Sawarabi Gothic;">ゲームを始める前にユーザー名を登録してね！</div><br><br>
 <div style="font-size: 7vw; font-family: Sawarabi Gothic;">ユーザー名</div>
 <input type="text" id="name" style="width: 90vw; height: 10vh; font-size: 8vw; border: 5px #000000 double;"></input></br>
-<button onclick="generate()"><div style="font-size: 7vw; font-family: Sawarabi Gothic;">登録</div></button>
+<button onclick="generate()" class="c-button"><div style="font-size: 7vw; font-family: Sawarabi Gothic;">登録</div></button>
 
 <script>
 if((localStorage.getItem("start_game"))=="1"){
-	location.href = ("home.html")
+	location.replace("home.html")
 }
 
 function generate(){
@@ -37,15 +37,26 @@ function generate(){
 		f=confirm("名前は「"+name+"」でよろしいですか？\n名前は後で変更できます。")
 		if(f == true){
 			localStorage.setItem("start_game", "1")
+			localStorage.setItem("user_exp", "0")
+			localStorage.setItem("user_money", "0")
 			localStorage.setItem("name", encodeURI(name))
 			alert('ようこそ、'+name+'さん！')
-			location.href = 'home.html'
+			location.replace('home.html')
 		}else{
 			console.log("retype!");
 		}
 	}
 }
 </script>
-
+<style>
+.c-button {
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  background: rgb(243, 243, 243);
+  color: #3276ff;
+  padding: 8px 16px;
+}
+</style>
 </body>
 </html>

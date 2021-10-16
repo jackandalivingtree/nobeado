@@ -1,0 +1,55 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="manifest" href="install.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-title" content="のべあど！">
+<meta name="viewport" content="width=250">
+<link rel="shortcut icon" href="icon.ico" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" href="apple-icon.png" sizes="192x192"/>
+<title>のべあど！</title>
+<meta name="description" content="ジャックと生きる木がゲームなった！？">
+<script type="text/javascript">
+if(window.matchMedia('(display-mode: standalone)').matches){
+    location.href = "index.html"
+}
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+      .then((reg) => {
+        console.log('Service worker registered.', reg);
+      });
+}
+</script>
+</head>
+<body>
+<center>
+<div><b>のべあどのインストール方法</b></div><br>
+</center>
+<div style="font-size: small;">
+<div>インストールすることでのべあどをご利用いただけます。</div><br>
+<b>・iPhone/iPadの場合（方法１）</b><br>
+１．ページの共有ボタンを押します。（OSのバージョンによってボタンの場所が異なります。）<br>
+<img src="install_ios.png" style="max-width: 90vw;"><br>
+２．共有メニューの中から「ホーム画面に追加」を押します。<br>
+３．「追加」を押せば完了です。<br><br>
+<b>・iPhone/iPadの場合（方法２）</b><br>
+１．ここをクリックします<br>
+２．画面の指示に従ってインストールしてください。<br><br>
+<b>・Androidの場合</b><br>
+１．画面右上の「...」を押してメニューを表示します。<br>
+２．メニューの中から「ホーム画面に追加」や「ウェブアプリをインストール」というようなボタンを押します。<br>
+（表記はブラウザのバージョンによって異なります）<br>
+３．「追加」を押せば完了です。<br><br>
+<b>・PC(Chrome/Edge)の場合</b><br>
+１．URLバーの<img src="install_edge.png" width="15px">や<img src="install_chrome.png" width="15px">、<img src="install_browser.png" width="15px">を押してください。<br>
+２．「インストール」や「追加」を押します。<br><br>
+詳しくはご自身で「PWAのインストール方法」と検索してください。
+</div><br>
+<div style="font-size: small;">
+<a href="javascript:location.replace('home.html')">（非推奨）インストールせずに起動する</a>
+</div>
+</body>
+</html>
