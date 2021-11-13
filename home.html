@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=250">
 <link rel="shortcut icon" href="icon.ico" type="image/vnd.microsoft.icon">
 <link rel="apple-touch-icon" href="apple-icon.png" sizes="192x192"/>
+<script src="info.js"></script>
 <title>のべあど！</title>
 <meta name="description" content="ジャックと生きる木がゲームなった！？">
 </head>
@@ -31,6 +32,7 @@
 		<div><a href="javascript:modalOpen()"><image style="width: 45vw;" src="bt_5.png"></image></a><a href="setting.html"><image style="width: 45vw;" src="bt_6.png"></image></a></div>
 	</div>
 </center>
+<span id="version_area" style="font-size: xx-small;">v0.0.0-C0</span>
 <style>
 /* === モーダル非表示（初期） ============================== */
 .modalNoDisp {
@@ -174,6 +176,8 @@ function modalClose(){
 nm.innerHTML = decodeURI(name)
 exp_sp.innerHTML = exp
 money_sp.innerHTML = money
+
+version_area.innerHTML = "v" + version_season + "." + version_major + "." + version_inc + "-C" + version_commit
 </script>
 <div id="modalArea" class="modalNoDisp">
     <div class="modalWindow">

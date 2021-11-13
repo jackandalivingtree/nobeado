@@ -1,0 +1,159 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-title" content="のべあど！">
+<meta name="viewport" content="width=350">
+<link rel="shortcut icon" href="icon.ico" type="image/vnd.microsoft.icon">
+<title>のべあど！</title>
+<meta name="description" content="ジャックと生きる木がゲームなった！？">
+</head>
+<body text="#ffffff" link="#ccccff">
+
+<div style="font-size: larger;">ぬいぐるみ</div>
+<div style="font-size: small;">とにかくかわいい！最高のぬいぐるみ！</div>
+<div style="font-size: medium;">所持数：<span id="how0">0</span><br>600MONEY</div>
+<button class="c-button" onclick="buy_item(0)">購入</button>
+<hr>
+
+<div id="sampleHeader" class="headerStyle">
+  <a href="javascript:location.replace('home.html')">&lt;Return</a>
+  <center>
+  <noscript>
+  
+  <h1>ブラウザの設定によってJavaScriptが無効になっています。</h1>
+  
+  </noscript>
+  <font size="+3"><b>【SHOP】</b></font></br>
+  MONEY:<span id="money_in">X</span>
+  </center>
+</div>
+
+<script src="battle/chara_data.js"></script>
+<script src="items.js"></script>
+<script>
+// array.includes(2)
+var game = localStorage.getItem("start_game")
+var name = localStorage.getItem("name")
+var money = localStorage.getItem("user_money")
+var items = JSON.parse(localStorage.getItem("items"));
+
+n = (item_list.length)/2
+for(i=0; i < n; i++){
+  if(items[i] == undefined || items[i] == 0){
+    howm = 0
+  }else{
+    howm = items[i]
+  }
+  location.href = "javascript:how" + i + ".innerHTML = " + howm
+}
+
+
+
+money_in.innerHTML = money
+
+if(game != "1"){
+	location.href = "gen.html"
+}
+
+function buy_item(id){
+  var item_name = item_list[2*id]
+  var item_expl = item_list[2*id + 1]
+  if(Number(money) >= item_expl){
+    localStorage.setItem("user_money",String(Number(money) - item_expl))
+    items[id] = items[id]+1
+    localStorage.setItem("items", JSON.stringify(items));
+    alert("「" + item_name + "」を購入！")
+    location.reload(false)
+  }else{
+    alert("「" + item_name + "」を購入するにはMONEYが足りません！！")
+  }
+}
+</script>
+
+</script>
+<style type="text/css">
+body {
+    background-color: #363636;            /* 背景色 */
+    background-size: cover;               /* 全画面 */
+    background-attachment: fixed;         /* 固定 */
+    background-position: center center;   /* 縦横中央 */
+ }
+
+/* === BODYのpaddingを調整する ============================== */
+body{
+  padding-top    : 100px;      /* ヘッダーの高さに合わせる */
+}
+
+/* === ヘッダー ============================================= */
+.headerStyle{
+  position    : fixed;
+  top         : 0;
+  left        : 0;
+  right       : 0;
+  height      : 100px;
+  background  : linear-gradient(#979400, #fff236);
+  z-index     : 10;
+  text-align  : left;
+  font-weight : bold;
+  color: rgb(255, 255, 255);
+  text-shadow    : 
+       2px  2px 1px #000000,
+      -2px  2px 1px #000000,
+       2px -2px 1px #000000,
+      -2px -2px 1px #000000,
+       2px  0px 1px #000000,
+       0px  2px 1px #000000,
+      -2px  0px 1px #000000,
+       0px -2px 1px #000000;
+}
+/* === 文字（大） =========================================== */
+.hdStrBig{
+  font-size   : 30px;
+  line-height : 70px;
+  color       : #000;
+}
+ 
+/* === 文字（小） =========================================== */
+.hdStrSmall{
+  font-size   : 14px;
+  line-height : 30px;
+  color       : #000;
+}
+
+.main_text{
+  text-shadow    : 
+       2px  2px 1px #ffffff,
+      -2px  2px 1px #ffffff,
+       2px -2px 1px #ffffff,
+      -2px -2px 1px #ffffff,
+       2px  0px 1px #ffffff,
+       0px  2px 1px #ffffff,
+      -2px  0px 1px #ffffff,
+       0px -2px 1px #ffffff;
+}
+
+.story_img{
+  width: 95%;
+                -webkit-touch-callout:none;
+                -webkit-user-select:none;
+                -moz-touch-callout:none;
+                -moz-user-select:none;
+                user-select:none;
+}
+.c-button {
+    appearance: none;
+    border: 0;
+    border-radius: 10px;
+    background: rgb(243, 243, 243);
+    color: #3276ff;
+    padding: 8px 16px;
+    width: 100%;
+}
+</style>
+
+
+</body>
+</html>
