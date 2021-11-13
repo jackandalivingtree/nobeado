@@ -1,6 +1,6 @@
 //データチェック
 if(sessionStorage.getItem("enemy_id") == null||sessionStorage.getItem("target_id") == null){
-    alert("内部エラーが発生しました。\nホームに戻ります。\n\nセッションストレージが読み取れませんでした。")
+    alert("内部エラーが発生しました。\nホームに戻ります。\n\n[E-02]敵ID無効")
     location.href=("../home.html")
 }
 

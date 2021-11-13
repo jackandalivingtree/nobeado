@@ -107,7 +107,7 @@
 
 <script>
 if(sessionStorage.getItem("story_id") == null){
-    alert("内部エラーが発生しました。\nホームに戻ります。\n\nセッションストレージが読み取れませんでした。")
+    alert("内部エラーが発生しました。\nホームに戻ります。\n\n[E-01]ストーリーID無効")
     location.href=("../home.html")
 }else{
     var story_id = sessionStorage.getItem("story_id")

@@ -13,7 +13,7 @@
 
 </head>
 <body>
-<a href="javascript:location.href = ('home.html')" style="font-size: 6vw; font-family: Sawarabi Gothic;">&lt;Return</a>
+<a href="javascript:location.href = ('setting.html')" style="font-size: 6vw; font-family: Sawarabi Gothic;">&lt;Return</a>
 <center>
 <div style="font-size: 8vw; font-family: Sawarabi Gothic;"><b>名前変更</b></div>
 <div style="font-size: 7vw; font-family: Sawarabi Gothic;">ユーザー名</div>
@@ -35,7 +35,7 @@ function generate(){
 		if(f == true){
 			localStorage.setItem("name", encodeURI(name))
 			alert('名前を変更しました。')
-			location.href = 'home.html'
+			location.href = 'setting.html'
 		}else{
 			console.log("retype!");
 		}

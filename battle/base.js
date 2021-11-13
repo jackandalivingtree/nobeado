@@ -15,7 +15,7 @@ if(enemy_id >= 0&&enemy_id <= 2){
 }
 
 if (game != 1){
-    alert('内部エラーが発生しました。\nホームに戻ります。\n\nユーザーデータが読み込めませんでした。')
+    alert('内部エラーが発生しました。\nホームに戻ります。\n\n[E-00]無効ユーザー')
     location.href=("../home.html")
 }
 

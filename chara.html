@@ -1,0 +1,178 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-title" content="のべあど！">
+<meta name="viewport" content="width=350">
+<link rel="shortcut icon" href="icon.ico" type="image/vnd.microsoft.icon">
+<title>のべあど！</title>
+<meta name="description" content="ジャックと生きる木がゲームなった！？">
+
+
+</head>
+<body text="#ffffff" link="#ccccff">
+<center>
+<span class="main_text">
+  <font color="#000000">
+        <div><font size="+2">[キャラクター]</font></div>
+        <select id="chara_pull" onchange="chara_select()">
+          <option hidden value="select" disabled selected>選択してね</option>
+          <option value="0">ジャック</option>
+          <option value="1">生きる木</option>
+          <option value="2">ひまわりたん</option>
+          <option value="3">16番ちゃん</option>
+        </select>
+        <hr>
+      </center>
+        <div id="target_data"></div>
+        <hr>
+      <center>
+        <div><input id="unlc_bt" type="button" value="アンロックする" disabled onclick="unlock()"></div>
+</span>
+
+</center>
+
+<div id="sampleHeader" class="headerStyle">
+  <a href="javascript:location.replace('home.html')">&lt;Return</a>
+  <center>
+  <noscript>
+  
+  <h1>ブラウザの設定によってJavaScriptが無効になっています。</h1>
+  
+  </noscript>
+  <font size="+3"><b>【CHARA】</b></font></br>
+  MONEY:<span id="money_in">X</span>
+  </center>
+</div>
+
+<script src="battle/chara_data.js"></script>
+<script>
+// array.includes(2)
+var game = localStorage.getItem("start_game")
+var name = localStorage.getItem("name")
+var money = localStorage.getItem("user_money")
+var op_ch = localStorage.getItem("unlocked_chara").split(",")
+money_in.innerHTML = money
+
+if(game != "1"){
+	location.href = "gen.html"
+}
+
+function chara_select(){
+  target_id = document.getElementById("chara_pull").value
+  target_name = target_date[5*target_id]
+  target_attack_power = target_date[5*target_id + 1]
+  target_defend_power = target_date[5*target_id + 2]
+  target_hp = target_date[5*target_id + 3]
+  target_maxHp = target_hp
+  target_skill = target_date[5*target_id + 4]
+  target_type = target_desc[2*target_id]
+  target_description = target_desc[2*target_id + 1]
+  target_c = target_cost[target_id]
+  img_in = ""
+  if (op_ch.includes(target_id) == true){
+    document.getElementById("unlc_bt").disabled = true
+    var img_in = "<table border='1' width='100%'><tr><td>キャラ種類</td><td>" + target_type + "</td></tr><tr><td>説明</td><td>" + target_description + "</td></tr></table>"
+  }else{
+    document.getElementById("unlc_bt").disabled = false
+  }
+  target_data.innerHTML = "<table border='1' width='100%'><tr><td>名前</td><td>" + target_name + "</td></tr><tr><td>HP</td><td>" + target_maxHp + "</td></tr><tr><td>攻撃力</td><td>" + target_attack_power + "</td></tr><tr><td>防御力</td><td>" + target_defend_power + "</td></tr><tr><td>コスト</td><td>" + target_c + "</td></tr></table></br>" + img_in
+}
+
+function unlock(){
+  if(Number(money) >= target_c){
+    localStorage.setItem("user_money",String(Number(money) - target_c))
+    localStorage.setItem("unlocked_chara", (op_ch + "," + target_id))
+    alert("「" + target_name + "」UNLOCK!")
+    location.reload(false)
+  }else{
+    alert("「" + target_name + "」をアンロックするにはMONEYが足りません！！")
+  }
+}
+</script>
+
+</script>
+<style type="text/css">
+body {
+    background-color: #999999;            /* 背景色 */
+    background-size: cover;               /* 全画面 */
+    background-attachment: fixed;         /* 固定 */
+    background-position: center center;   /* 縦横中央 */
+ }
+
+/* === BODYのpaddingを調整する ============================== */
+body{
+  padding-top    : 100px;      /* ヘッダーの高さに合わせる */
+}
+
+/* === ヘッダー ============================================= */
+.headerStyle{
+  position    : fixed;
+  top         : 0;
+  left        : 0;
+  right       : 0;
+  height      : 100px;
+  background  : linear-gradient(#00973f, #00ff9d);
+  z-index     : 10;
+  text-align  : left;
+  font-weight : bold;
+  color: rgb(255, 255, 255);
+  text-shadow    : 
+       2px  2px 1px #000000,
+      -2px  2px 1px #000000,
+       2px -2px 1px #000000,
+      -2px -2px 1px #000000,
+       2px  0px 1px #000000,
+       0px  2px 1px #000000,
+      -2px  0px 1px #000000,
+       0px -2px 1px #000000;
+}
+/* === 文字（大） =========================================== */
+.hdStrBig{
+  font-size   : 30px;
+  line-height : 70px;
+  color       : #000;
+}
+ 
+/* === 文字（小） =========================================== */
+.hdStrSmall{
+  font-size   : 14px;
+  line-height : 30px;
+  color       : #000;
+}
+
+.main_text{
+  text-shadow    : 
+       2px  2px 1px #ffffff,
+      -2px  2px 1px #ffffff,
+       2px -2px 1px #ffffff,
+      -2px -2px 1px #ffffff,
+       2px  0px 1px #ffffff,
+       0px  2px 1px #ffffff,
+      -2px  0px 1px #ffffff,
+       0px -2px 1px #ffffff;
+}
+
+.story_img{
+  width: 95%;
+                -webkit-touch-callout:none;
+                -webkit-user-select:none;
+                -moz-touch-callout:none;
+                -moz-user-select:none;
+                user-select:none;
+}
+.c-button {
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  background: rgb(243, 243, 243);
+  color: #3276ff;
+  padding: 8px 16px;
+}
+</style>
+
+
+</body>
+</html>

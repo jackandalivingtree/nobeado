@@ -48,6 +48,21 @@
   </center>
 </div>
  
+<font color="#000000">
+  <div id="desc" class="modalNoDisp">
+    <div class="modalWindow">
+      <div>・敵の情報</div>
+      <div id="enemy_data"></div><br>
+      <div>・キャラ選択</div>
+      <select id="chara_pull" onchange="chara_select()">
+        <option hidden value="select" disabled selected>選択してね</option>
+      </select>
+      <div id="target_data"></div><br>
+      <div><input type="button" value="閉じる" onclick="modalClose( stid )"><input type="button" value="スタート" onclick="start_st( stid )"></div>
+    </div>
+  </div>
+  </font> 
+
 <script src="chara_data.js"></script>
 <script>
 var enemy_id = undefined
@@ -56,10 +71,28 @@ sessionStorage.removeItem("enemy_id")
 sessionStorage.removeItem("target_id")
 var enemy_select = undefined
 var target_select = undefined
+if(localStorage.getItem("unlocked_chara") != undefined){
+  op_ch = localStorage.getItem("unlocked_chara").split(",")
+}else{
+  alert("内部エラーが発生しました。\nホームに戻ります。\n\n[E-03]キャラクター未開放")
+}
 var game = localStorage.getItem("start_game")
 if(game != 1){
   location.href = ("../home.html")
 }
+
+if(op_ch[0] != ''){
+  for(i=0; i != op_ch.length; i++){
+    select = document.getElementById("chara_pull");
+    option = document.createElement("option");
+    option.value = op_ch[i];
+    option.text = target_date[5*op_ch[i]];
+    select.appendChild(option);
+  }
+}else{
+  alert("内部エラーが発生しました。\nホームに戻ります。\n\n[E-04]解放キャラクター値異常")
+}
+
 
 function open_story(id){
   enemy_select = 1
@@ -234,25 +267,6 @@ body{
 }
 </style>
 
-<font color="#000000">
-<div id="desc" class="modalNoDisp">
-  <div class="modalWindow">
-    <div>・敵の情報</div>
-    <div id="enemy_data"></div><br>
-    <div>・キャラ選択</div>
-    <select id="chara_pull" onchange="chara_select()">
-      <option hidden value="select" disabled selected>選択してね</option>
-      <option value="0">ジャック</option>
-      <option value="1">生きる木</option>
-      <option value="2">ひまわりたん</option>
-      <option value="3">16番ちゃん</option>
-    </select>
-    <div id="target_data"></div><br>
-    <div><input type="button" value="閉じる" onclick="modalClose( stid )"><input type="button" value="スタート" onclick="start_st( stid )"></div>
-  </div>
-</div>
 
-
-</font> 
 </body>
 </html>
