@@ -12,12 +12,11 @@
 (その他にも、色々なコードを参考にして書いています。)
 
 ## Usage
-[こちら]:(https://jackandalivingtree.github.io/nobeado)  
-[こちら]から起動できます。  
+[こちら](https://jackandalivingtree.github.io/nobeado)から起動できます。  
 **PWAを使用しており、アプリケーションのインストールが可能です。**
 
 ## Install
-[こちら]のページから**PWA**をインストールしていただけます。  
+[こちら](https://jackandalivingtree.github.io/nobeado)のページから**PWA**をインストールしていただけます。  
 
 ## Supported Device
 |OS|ブラウザ|対応状況|
