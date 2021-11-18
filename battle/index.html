@@ -74,7 +74,8 @@ var target_select = undefined
 if(localStorage.getItem("unlocked_chara") != undefined){
   op_ch = localStorage.getItem("unlocked_chara").split(",")
 }else{
-  alert("内部エラーが発生しました。\nホームに戻ります。\n\n[E-03]キャラクター未開放")
+  alert("内部エラーが発生しました。\nホームに戻ります。\n\n[E-03]データ不足")
+  location.href = ("../home.html")
 }
 var game = localStorage.getItem("start_game")
 if(game != 1){
