@@ -12,8 +12,9 @@
 <title>のべあど！</title>
 <meta name="description" content="ジャックと生きる木がゲームなった！？">
 <script type="text/javascript">
-if(window.matchMedia('(display-mode: standalone)').matches){
-    location.href = "index.html"
+if(window.matchMedia('(display-mode: standalone)').matches || sessionStorage.getItem("launched") == "1"){
+  sessionStorage.setItem("launched", "1")
+  location.replace('index.html')
 }
 
 if ('serviceWorker' in navigator) {
@@ -21,6 +22,11 @@ if ('serviceWorker' in navigator) {
       .then((reg) => {
         console.log('Service worker registered.', reg);
       });
+}
+
+function open(){
+  sessionStorage.setItem("launched", "1")
+  location.replace('index.html')
 }
 </script>
 </head>
@@ -49,13 +55,8 @@ if ('serviceWorker' in navigator) {
 詳しくはご自身で「PWAのインストール方法」と検索してください。
 </div><br>
 <div style="font-size: small;">
-<a href="javascript:location.replace('home.html')">（非推奨）インストールせずに起動する</a>
+<a href="javascript:open()">インストールせずに起動する</a>
 </div>
-<image style="width: 0%;" src="bt_1.png"></image>
-<image style="width: 0%;" src="bt_2.png"></image>
-<image style="width: 0%;" src="bt_3.png"></image>
-<image style="width: 0%;" src="bt_4.png"></image>
-<image style="width: 0%;" src="bt_5.png"></image>
-<image style="width: 0%;" src="bt_6.png"></image>
+
 </body>
 </html>

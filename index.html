@@ -13,21 +13,21 @@
 <meta name="description" content="ジャックと生きる木がゲームなった！？">
 
 <script type="text/javascript">
-if(window.matchMedia('(display-mode: standalone)').matches != true){
+if(window.matchMedia('(display-mode: standalone)').matches != true  && sessionStorage.getItem("launched") != "1"){
   location.href = "install.html"
 }
 
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js')
-      .then((reg) => {
-        console.log('Service worker registered.', reg);
-      });
+  navigator.serviceWorker.register('sw.js')
+    .then((reg) => {
+      console.log('Service worker registered.', reg);
+    });
 }
 
 function modalOpen(){
   document.getElementById("modalArea").className = "modalBg modalBgOpen";
 }
-  
+
 function modalClose(){
   document.getElementById("modalArea").className = "modalBg modalBgClose";
 }
@@ -36,7 +36,7 @@ function modalClose(){
 <body>
 <center>
 <noscript>
-  
+
 
 <h1>ブラウザの設定によってJavaScriptが無効になっています。</h1>
 
@@ -65,8 +65,8 @@ div.client {font-size: xx-small;}
   bottom     : 0;
   left       : 0;
   background : radial-gradient(circle at 50% 50%,
-                               rgba(0, 0, 0, 0.92),
-                               rgba(0, 0, 0, 0.72));
+                             rgba(0, 0, 0, 0.92),
+                             rgba(0, 0, 0, 0.72));
   z-index    : 10;
 }
 
@@ -75,8 +75,8 @@ div.client {font-size: xx-small;}
   animation  : bgOpenAnime 1.1s ease;
 }
 @keyframes bgOpenAnime {                     /* フェードイン */
-   0% { opacity: 0 }
- 100% { opacity: 1 }
+  0% { opacity: 0 }
+  100% { opacity: 1 }
 }
 
 /* === モーダルバックグランド：CLOSE時のアニメーション ===== */
@@ -85,8 +85,8 @@ div.client {font-size: xx-small;}
   animation  : bgCloseAnime 1.1s ease;
 }
 @keyframes bgCloseAnime {                     /* フェードイン */
-   0% { opacity: 1; bottom: 0 }
- 100% { opacity: 0; bottom: 0 }
+  0% { opacity: 1; bottom: 0 }
+  100% { opacity: 0; bottom: 0 }
 }
 
 /* === モーダルウインド ==================================== */
@@ -112,8 +112,8 @@ div.client {font-size: xx-small;}
   animation     : modalOpenAnime 1.1s ease;
 }
 @keyframes modalOpenAnime {                      /* 上→中心 */
-   0% { top : -50% }
- 100% { top : 50%  }
+  0% { top : -50% }
+  100% { top : 50%  }
 }
 
 /* === モーダルウインド：CLOSE時のアニメーション============ */
@@ -121,8 +121,8 @@ div.client {font-size: xx-small;}
   animation     : modalCloseAnime 1.1s ease;
 }
 @keyframes modalCloseAnime {                      /* 中心→下 */
-   0% { top : 50%  }
- 100% { top : 150% }
+  0% { top : 50%  }
+  100% { top : 150% }
 }
 
 .c-button {
@@ -135,10 +135,10 @@ div.client {font-size: xx-small;}
 }
 </style>
 <div id="modalArea" class="modalNoDisp">
-    <div class="modalWindow">
-        <a href="javascript:modalClose()">[CLOSE]</a><br>
-        <iframe src="info.html"style="height: 80vh; width: 85vw;">infomation</iframe>
-    </div>
+  <div class="modalWindow">
+    <a href="javascript:modalClose()">[CLOSE]</a><br>
+    <iframe src="info.html"style="height: 80vh; width: 85vw;">infomation</iframe>
+  </div>
 </div>
 <image style="width: 0%;" src="bt_1.png"></image>
 <image style="width: 0%;" src="bt_2.png"></image>
