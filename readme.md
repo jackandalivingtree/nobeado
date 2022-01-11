@@ -4,7 +4,7 @@
 [jackandalivingtree/nobeado](https://github.com/jackandalivingtree/nobead) - ジャックと生きる木のブラウザゲームです。
 
 ## Description
-このGitHubレポジトリは、@nattyan-tvによって製作、@jackandalivingtreeによって管理されている、[ジャックと生きる木](https://sites.google.com/view/jlt-home)のブラウザゲームのレポジトリとなります。  
+このGitHubレポジトリは、[@nattyan-tv](https://github.com/nattyan-tv)によって製作、[@jackandalivingtree](https://github.com/jackandalivingtree)によって管理されている、[ジャックと生きる木](https://sites.google.com/view/jlt-home)のブラウザゲームのレポジトリとなります。  
 この「ジャックと生きる木　のべあど！」は、`GitHub Pages`という機能を使用しており、GitHubのサーバー上で動作しています。
 
 ## Requirement
