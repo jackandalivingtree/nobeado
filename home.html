@@ -9,10 +9,13 @@
 <link rel="shortcut icon" href="icon.ico" type="image/vnd.microsoft.icon">
 <link rel="apple-touch-icon" href="apple-icon.png" sizes="192x192"/>
 <script src="info.js"></script>
+<script>
+  document.addEventListener("dblclick", function(e){ e.preventDefault();}, { passive: false });
+</script>
 <title>のべあど！</title>
 <meta name="description" content="ジャックと生きる木がゲームなった！？">
 </head>
-<body>
+<body onselectstart="return false;" onmousedown="return false;" oncontextmenu="return false;">
 <a href="javascript:location.replace('index.html')">&lt;Return</a>
 <center>
 <noscript>
@@ -24,16 +27,21 @@
 <div class="status_name" id="name_status">ようこそ<b><span id="nm">[UserNAME]</span></b>さん！</div>
 <div class="status_exp" id="exp_status">EXP:<b><span id="exp_sp">0</span></b></div>
 <div class="status_money" id="money_status">MONEY:<b><span id="money_sp">0</span></b></div>
-<img src="season_beta.png" width="200" height="200" style="pointer-events: none;"><br>
-	<div id="menubt_dev"></div>
-	<div>
-		<div><a href="story_select.html"><image style="width: 45vw;" src="bt_1.png"></image></a><a href="battle/index.html"><image style="width: 45vw;" src="bt_2.png"></image></a></div>
-		<div><a href="chara.html"><image style="width: 45vw;" src="bt_3.png"></image></a><a href="shop.html"><image style="width: 45vw;" src="bt_4.png"></image></a></div>
-		<div><a href="javascript:modalOpen()"><image style="width: 45vw;" src="bt_5.png"></image></a><a href="setting.html"><image style="width: 45vw;" src="bt_6.png"></image></a></div>
-	</div>
+<img src="images/season_beta.png" width="200" height="200" style="pointer-events: none;"><br>
+<div id="menubt_dev"></div>
+<div>
+	<div><a href="javascript:location.replace('story_select.html')"><image class="bt_main" src="images/bt_1.png"></image></a><a href="javascript:location.replace('battle/index.html')"><image class="bt_main" src="images/bt_2.png"></image></a></div>
+	<div><a href="javascript:location.replace('chara.html')"><image class="bt_main" src="images/bt_3.png"></image></a><a href="javascript:location.replace('shop.html')"><image class="bt_main" src="images/bt_4.png"></image></a></div>
+	<div><a href="javascript:modalOpen()"><image class="bt_main" src="images/bt_5.png"></image></a><a href="javascript:location.replace('setting.html')"><image class="bt_main" src="images/bt_6.png"></image></a></div>
+</div>
+
 </center>
-<span id="version_area" style="font-size: xx-small;">v0.0.0-C0</span>
+<span id="version_area" style="font-size: xx-small;">base_v.1</span>
 <style>
+.bt_main{
+  width: 45vw;
+}
+
 /* === モーダル非表示（初期） ============================== */
 .modalNoDisp {
   display : none;
@@ -48,8 +56,8 @@
   bottom     : 0;
   left       : 0;
   background : radial-gradient(circle at 50% 50%,
-                               rgba(0, 0, 0, 0.92),
-                               rgba(0, 0, 0, 0.72));
+                              rgba(0, 0, 0, 0.92),
+                              rgba(0, 0, 0, 0.72));
   z-index    : 10;
 }
 
@@ -58,8 +66,8 @@
   animation  : bgOpenAnime 1.1s ease;
 }
 @keyframes bgOpenAnime {                     /* フェードイン */
-   0% { opacity: 0 }
- 100% { opacity: 1 }
+  0% { opacity: 0 }
+  100% { opacity: 1 }
 }
 
 /* === モーダルバックグランド：CLOSE時のアニメーション ===== */
@@ -68,8 +76,8 @@
   animation  : bgCloseAnime 1.1s ease;
 }
 @keyframes bgCloseAnime {                     /* フェードイン */
-   0% { opacity: 1; bottom: 0 }
- 100% { opacity: 0; bottom: 0 }
+  0% { opacity: 1; bottom: 0 }
+  100% { opacity: 0; bottom: 0 }
 }
 
 /* === モーダルウインド ==================================== */
@@ -95,8 +103,8 @@
   animation     : modalOpenAnime 1.1s ease;
 }
 @keyframes modalOpenAnime {                      /* 上→中心 */
-   0% { top : -50% }
- 100% { top : 50%  }
+  0% { top : -50% }
+  100% { top : 50%  }
 }
 
 /* === モーダルウインド：CLOSE時のアニメーション============ */
@@ -104,8 +112,8 @@
   animation     : modalCloseAnime 1.1s ease;
 }
 @keyframes modalCloseAnime {                      /* 中心→下 */
-   0% { top : 50%  }
- 100% { top : 150% }
+  0% { top : 50%  }
+  100% { top : 150% }
 }
 
 .box2 {

@@ -12,9 +12,11 @@
 <title>のべあど！</title>
 <meta name="description" content="ジャックと生きる木がゲームなった！？">
 
+<script src="info.js"></script>
+
 <script type="text/javascript">
 if(window.matchMedia('(display-mode: standalone)').matches != true  && sessionStorage.getItem("launched") != "1"){
-  location.href = "install.html"
+  location.replace("install.html")
 }
 
 if ('serviceWorker' in navigator) {
@@ -33,7 +35,7 @@ function modalClose(){
 }
 </script>
 </head>
-<body>
+<body onselectstart="return false;" onmousedown="return false;" oncontextmenu="return false;">
 <center>
 <noscript>
 
@@ -41,13 +43,13 @@ function modalClose(){
 <h1>ブラウザの設定によってJavaScriptが無効になっています。</h1>
 
 </noscript>
-<font size="+1.5"><b>ジャックと生きる木　のべあど！</br>
-Ver:v0.9.4</b></font></br>
-<img src="season_beta.png" width="200" height="200" style="pointer-events: none;"></br>
-<button style="width: 200px; height: 50px;" onclick="location.href = 'first.html'" class="c-button">メインメニュー</button></br>
+<font size="+1.5"><b>ジャックと生きる木<br>のべあど！</br>
+<span id="version_area">base_v1</span></b></font></br>
+<img src="images/season_beta.png" width="200" height="200" style="pointer-events: none;"></br>
+<button style="width: 200px; height: 50px;" onclick="location.replace('first.html')" class="c-button">メインメニュー</button></br>
 <button style="width: 200px; height: 50px;" onclick="modalOpen()" class="c-button">ニュース</button></br><br>
-<button style="width: 200px; height: 50px;" onclick="location.href = 'https://sites.google.com/view/jlt-home'" class="c-button">メインストーリーを読む</button></br><br>
-<button style="width: 200px; height: 30px;" onclick="location.href = 'del_index.html'" class="c-button">初期化</button></br>
+<button style="width: 200px; height: 50px;" onclick="window.open('https://sites.google.com/view/jlt-home')" class="c-button">メインストーリーを読む</button></br><br>
+<button style="width: 200px; height: 30px;" onclick="location.replace('del_index.html')" class="c-button">初期化</button></br>
 </center>
 <style type="text/css">
 div.client {font-size: xx-small;}
@@ -65,8 +67,8 @@ div.client {font-size: xx-small;}
   bottom     : 0;
   left       : 0;
   background : radial-gradient(circle at 50% 50%,
-                             rgba(0, 0, 0, 0.92),
-                             rgba(0, 0, 0, 0.72));
+                              rgba(0, 0, 0, 0.92),
+                              rgba(0, 0, 0, 0.72));
   z-index    : 10;
 }
 
@@ -140,11 +142,14 @@ div.client {font-size: xx-small;}
     <iframe src="info.html"style="height: 80vh; width: 85vw;">infomation</iframe>
   </div>
 </div>
-<image style="width: 0%;" src="bt_1.png"></image>
-<image style="width: 0%;" src="bt_2.png"></image>
-<image style="width: 0%;" src="bt_3.png"></image>
-<image style="width: 0%;" src="bt_4.png"></image>
-<image style="width: 0%;" src="bt_5.png"></image>
-<image style="width: 0%;" src="bt_6.png"></image>
+<image style="width: 0%;" src="images/bt_1.png"></image>
+<image style="width: 0%;" src="images/bt_2.png"></image>
+<image style="width: 0%;" src="images/bt_3.png"></image>
+<image style="width: 0%;" src="images/bt_4.png"></image>
+<image style="width: 0%;" src="images/bt_5.png"></image>
+<image style="width: 0%;" src="images/bt_6.png"></image>
+<script>
+  version_area.innerHTML = "v" + version_season + "." + version_major + "." + version_inc
+</script>
 </body>
 </html>

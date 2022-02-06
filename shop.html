@@ -10,7 +10,7 @@
 <title>のべあど！</title>
 <meta name="description" content="ジャックと生きる木がゲームなった！？">
 </head>
-<body text="#ffffff" link="#ccccff">
+<body text="#ffffff" link="#ccccff" onselectstart="return false;" onmousedown="return false;" oncontextmenu="return false;">
 
 <div style="font-size: larger;">ぬいぐるみ</div>
 <div style="font-size: small;">とにかくかわいい！最高のぬいぐるみ！</div>
@@ -47,7 +47,7 @@ for(i=0; i < n; i++){
   }else{
     howm = items[i]
   }
-  location.href = "javascript:how" + i + ".innerHTML = " + howm
+  location.replace("javascript:how" + i + ".innerHTML = " + howm)
 }
 
 
@@ -55,7 +55,7 @@ for(i=0; i < n; i++){
 money_in.innerHTML = money
 
 if(game != "1"){
-	location.href = "gen.html"
+	location.replace("gen.html")
 }
 
 function buy_item(id){
@@ -80,7 +80,7 @@ body {
     background-size: cover;               /* 全画面 */
     background-attachment: fixed;         /* 固定 */
     background-position: center center;   /* 縦横中央 */
- }
+}
 
 /* === BODYのpaddingを調整する ============================== */
 body{

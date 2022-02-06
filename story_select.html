@@ -12,7 +12,7 @@
 
 
 </head>
-<body text="#ffffff" link="#ccccff">
+<body text="#ffffff" link="#ccccff" onselectstart="return false;" onmousedown="return false;" oncontextmenu="return false;">
 <center>
 <span class="main_text">
 <font size="+1"><b>[Season0]</b></font></br>
@@ -38,20 +38,20 @@
   <font size="+3"><b>【STORY SELECT】</b></font></br>
   </center>
 </div>
- 
+
 
 <script>
 var game = localStorage.getItem("start_game")
 var name = localStorage.getItem("name")
 
 if(game != "1"){
-	location.href = "gen.html"
+	location.replace("gen.html")
 }
 
 function open_story(id){
 	stid = id
 	document.getElementById("desc").className = "modalBg modalBgOpen";
-	document.info_frame.location.href = "stories/info_" + stid + ".html";
+	document.info_frame.location.replace("stories/info_" + stid + ".html")
 }
 
 function modalClose(id){
@@ -66,7 +66,7 @@ function start_st(id){
 <style type="text/css">
 body {
     background-color: #fff;            /* 背景色 */
-    background-image: url("bg_main.jpg"); /* 画像 */
+    background-image: url("battle/bg_main.jpg"); /* 画像 */
     background-size: cover;               /* 全画面 */
     background-attachment: fixed;         /* 固定 */
     background-position: center center;   /* 縦横中央 */

@@ -1,10 +1,27 @@
 try{
-var game = localStorage.getItem("start_game")
-var name_c = localStorage.getItem("name")
-var key_undeco = "name=" + name_c + "/start_game=" + game
-console.log(key_undeco)
-var key = btoa(key_undeco);
-key_phase.innerHTML = ("https://jackandalivingtree.github.io/nobeado/load_url.html#" + key)
+    console.log(localStorage.length)
+    var key_undeco = "";
+    for( var key in localStorage ){
+        if (
+            key == "length" ||
+            key == "clear" ||
+            key == "getItem" ||
+            key == "key" ||
+            key == "removeItem" ||
+            key == "setItem"
+            )
+        {
+            console.log("skip:" + key)
+        }
+        else
+        {
+            key_undeco = key_undeco + key + "=" + localStorage.getItem(key) + "/"
+        }
+    }
+    key_undeco = key_undeco.slice(0, -1);
+    console.log(key_undeco)
+    var key = btoa(key_undeco);
+    key_phase.innerHTML = ("https://jackandalivingtree.github.io/nobeado/load_url.html#" + key)
 }catch(e){
-alert('エラーが発生しました。\n詳細：' + e.message)
+    alert('エラーが発生しました。\n詳細：' + e.message)
 }

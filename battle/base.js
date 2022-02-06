@@ -16,7 +16,7 @@ if(enemy_id >= 0&&enemy_id <= 2){
 
 if (game != 1){
     alert('内部エラーが発生しました。\nホームに戻ります。\n\n[E-00]無効ユーザー')
-    location.href=("../home.html")
+    location.replace("../home.html")
 }
 
 function menu_open(){
@@ -104,7 +104,7 @@ function set_texts(type, mes){
 }
 
 function exit(){
-    location.href = ('index.html')
+    location.replace('index.html')
 }
 
 function cushion(type){

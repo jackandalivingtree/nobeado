@@ -12,14 +12,14 @@
 
 <script src="stories/no_scroll.js"></script>
 </head>
-<body>
+<body onselectstart="return false;" onmousedown="return false;" oncontextmenu="return false;">
 <center>
 <h3>初期化</h3>
 <h6>すべてのセーブデータを初期化出来ます。</h6>
 初期化してもよろしいですか？
 </br>
 <button onclick="delet()" class="c-button">初期化</button>
-<button onclick="location.href = 'index.html'" class="c-button">もどる</button>
+<button onclick="location.replace('index.html')" class="c-button">もどる</button>
 
 <script>
 function delet(){
@@ -27,21 +27,21 @@ function delet(){
 		if(f == true){
 			localStorage.clear()
 			alert('セーブデータの初期化を行いました。')
-			location.href = 'index.html'
+			location.replace('index.html')
 		}else{
-			location.href = 'index.html'
+			location.replace('index.html')
 		}
 	}
 
 </script>
 <style>
-	.c-button {
-  appearance: none;
-  border: 0;
-  border-radius: 10px;
-  background: rgb(243, 243, 243);
-  color: #3276ff;
-  padding: 8px 16px;
+.c-button {
+	appearance: none;
+	border: 0;
+	border-radius: 10px;
+	background: rgb(243, 243, 243);
+	color: #3276ff;
+	padding: 8px 16px;
 }
 </style>
 </body>

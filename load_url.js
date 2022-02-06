@@ -35,7 +35,7 @@ try{
         errormes = "Unknown error\n詳細：" + e.stack
     }
     alert('エラーが発生しました。\nエラー内容：' + errormes)
-    console.log (e.message)
+    console.log(e.message)
     alert('エラーによりデータの復元を停止します。')
     location.replace('index.html')
 }

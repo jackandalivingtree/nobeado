@@ -12,12 +12,12 @@
 <meta name="description" content="ジャックと生きる木がゲームなった！？">
 <link rel="stylesheet" href="user_log.css">
 </head>
-<body>
+<body onselectstart="return false;" onmousedown="return false;" oncontextmenu="return false;">
 <a href="javascript:location.replace('setting.html')" class="return">&lt;Return</a>
 <center>
 <div class="first">データ移行</div>
 <div class="second">下のテキストボックスに表示されたURLに、移行先デバイスでアクセスすると、データを復元することが出来ます。</div>
-<textarea id="key_phase" class="key" readonly>（このメッセージが表示されている場合はエラーが発生しています。）</textarea>
+<textarea id="key_phase" onclick="this.select()" class="key" readonly>（このメッセージが表示されている場合はエラーが発生しています。）</textarea>
 <script src="save_key.js"></script>
 <button class="c-button" id="share">共有</button>
 <style type="text/css">
@@ -31,22 +31,22 @@
 }
 </style>
 <script type="text/javascript">
-    (function(){
-      function share() {
-        if (navigator.share) {
-          navigator.share({
-            title: 'ジャックと生きる木 のべあど！',
-            text: 'データが消えることの無いよう、ちゃんとバックアップしましょう！',
-            url: ("https://jackandalivingtree.github.io/nobeado/load_url.html#" + key),
-          })
-          .then(() => console.log('Successful share'))
-          .catch((error) => console.log('Error sharing', error));
-        } else {
-          alert('お使いのブラウザでは共有は行えません！');
-        }
+  (function(){
+    function share() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'ジャックと生きる木 のべあど！',
+          text: 'データが消えることの無いよう、ちゃんとバックアップしましょう！',
+          url: ("https://jackandalivingtree.github.io/nobeado/load_url.html#" + key),
+        })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing', error));
+      } else {
+        alert('お使いのブラウザでは共有は行えません！');
       }
-      document.querySelector('#share').addEventListener('click', share);
-    })();
-  </script>
+    }
+    document.querySelector('#share').addEventListener('click', share);
+  })();
+</script>
 </body>
 </html>

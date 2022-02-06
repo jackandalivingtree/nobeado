@@ -12,8 +12,8 @@
 <meta name="description" content="ジャックと生きる木がゲームなった！？">
 
 </head>
-<body>
-    <a href="javascript:location.href=('home.html')">&lt;Return</a>
+<body onselectstart="return false;" onmousedown="return false;" oncontextmenu="return false;">
+    <a href="javascript:location.replace('home.html')">&lt;Return</a>
 <center>
 <noscript>
 
@@ -28,25 +28,25 @@
 <h4>If you aren't developer, please select Initialize data(home) or Initialize data(index)!!!!!!</h4>
 <h4>Don't show this page to normal user!!!!!</h4>
 <div>Modes</div>
-<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'story_select.html'">Story mode</button><br>
-<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'battle/index.html'">Battle mode</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.replace('story_select.html')">Story mode</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.replace('battle/index.html')">Battle mode</button><br>
 <br>
 <div>Utilities</div>
-<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'change_name.html'">Change name</button><br>
-<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'save_key.html'">Copy data</button><br>
-<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'del.html'">Initialize data(home)</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.replace('change_name.html')">Change name</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.replace('save_key.html')">Copy data</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.replace('del.html')">Initialize data(home)</button><br>
 <br>
 <div>Debug links</div>
-<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'stories/base.html'">Story(base.html)</button><br>
-<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'battle/battle.html'">Battle(battle.html)</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.replace('stories/base.html')">Story(base.html)</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.replace('battle/battle.html')">Battle(battle.html)</button><br>
 <br>
 <div>Debug utilities</div>
-<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'change_flag.html'">Flag change(session/local)</button><br>
-<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'gen.html'">User generate</button><br>
-<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'user_log.html'">Login/SignUp</button><br>
-<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'stories/story_maker.html'">Story maker</button><br>
-<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'del_index.html'">Initialize data(index)</button><br>
-<button class="c-button" style="width: 200px; height: 30px;" onclick="location.href = 'load_url.html'">URI_loader(can't use)</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.replace('change_flag.html')">Flag change(session/local)</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.replace('gen.html')">User generate</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.replace('user_log.html')">Login/SignUp</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.replace('stories/story_maker.html')">Story maker</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.replace('del_index.html')">Initialize data(index)</button><br>
+<button class="c-button" style="width: 200px; height: 30px;" onclick="location.replace('load_url.html')">URI_loader(can't use)</button><br>
 </center>
 <style>
 .box2 {
@@ -63,12 +63,12 @@
     padding: 0;
 }
 .c-button {
-  appearance: none;
-  border: 0;
-  border-radius: 10px;
-  background: rgb(243, 243, 243);
-  color: #3276ff;
-  padding: 8px 16px;
+    appearance: none;
+    border: 0;
+    border-radius: 10px;
+    background: rgb(243, 243, 243);
+    color: #3276ff;
+    padding: 8px 16px;
 }
 .status_name{
     font-size: 12.5px;
@@ -101,7 +101,7 @@ var money = localStorage.getItem("user_money")
 
 if(dev != 1){
     alert("You don't have dev flag!!!\nIf you are developer,please use developer tool and turn on flag(localStorage.setItem('dev','1')).")
-	location.href = "index.html"
+	location.replace("index.html")
 }
 
 nm.innerHTML = decodeURI(name)
