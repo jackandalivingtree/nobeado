@@ -21,7 +21,7 @@ try{
     key_undeco = key_undeco.slice(0, -1);
     console.log(key_undeco)
     var key = btoa(key_undeco);
-    key_phase.innerHTML = ("https://jackandalivingtree.github.io/nobeado/load_url.html#" + key)
+    key_phase.innerHTML = ("https://jlt.f5.si/load_url.html#" + key)
 }catch(e){
     alert('エラーが発生しました。\n詳細：' + e.message)
 }
