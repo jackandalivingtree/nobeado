@@ -4,7 +4,7 @@
 [jackandalivingtree/nobeado](https://github.com/jackandalivingtree/nobead) - ジャックと生きる木のブラウザゲームです。
 
 ## Description
-このGitHubレポジトリは、@nattyan-tvによって製作、@jackandalivingtreeによって管理されている、[ジャックと生きる木](https://sites.google.com/view/jlt-home)のブラウザゲームのレポジトリとなります。  
+このGitHubレポジトリは、[@nattyan-tv](https://github.com/nattyan-tv)によって製作、[@jackandalivingtree](https://github.com/jackandalivingtree)によって管理されている、[ジャックと生きる木](https://sites.google.com/view/jlt-home)のブラウザゲームのレポジトリとなります。  
 この「ジャックと生きる木　のべあど！」は、`GitHub Pages`という機能を使用しており、GitHubのサーバー上で動作しています。
 
 ## Requirement
@@ -12,11 +12,11 @@
 (その他にも、色々なコードを参考にして書いています。)
 
 ## Usage
-[こちら](https://jackandalivingtree.github.io/nobeado)から起動できます。  
+[こちら](https://jlt.f5.si/)から起動できます。  
 **PWAを使用しており、アプリケーションのインストールが可能です。**
 
 ## Install
-[こちら](https://jackandalivingtree.github.io/nobeado)のページから**PWA**をインストールしていただけます。  
+[こちら](https://jlt.f5.si/)のページから**PWA**をインストールしていただけます。  
 
 ## Supported Device
 |OS|ブラウザ|対応状況|
@@ -40,6 +40,6 @@ Pull Requestは大歓迎です。
 ## License
 本レポジトリは、著作権法により保護されています。  
 著作者の許可なく、下記のことは行えません。  
-### 著作者の表記なしに、そのままのプログラム又は改変を行ったプログラムの再流布
-### 商用利用
+**著作者の表記なしに、そのままのプログラム又は改変を行ったプログラムの再流布**
+**商用利用**
 上記項目の許可取得及び、その他気になることなどございましたら、[製作者Twitter](https://twitter.com/nattyan_tv)のDMにてご連絡ください。
