@@ -114,6 +114,11 @@ function next16(){
 }
 
 name_preload.innerHTML = name
-span_load.innerHTML = ""
 
-next1()
+
+
+window.addEventListener('load', function() {
+    span_load.innerHTML = ""
+    next1()
+});
+

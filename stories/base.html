@@ -32,7 +32,8 @@
 	<img id="load" src="images/sprite/text_box.png" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
 	<img id="load" src="images/bg/bg_black.png" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
 	<img id="load" src="images/bg/yakushima.jpg" style="z-index: -1000; position: absolute; width: 0%; height: 0%;" class="black_load">
-	<div style="z-index: -1000; position: absolute; width: 0%; height: 0%;" id="preload_texts"></div>
+	<div style="z-index: -1000; position: absolute; width: 0%; height: 0%;" id="preload_texts">
+  </div>
 	<div style="z-index: -1000; position: absolute; width: 0%; height: 0%;" id="name_preload"></div>
 </span>
 
@@ -43,12 +44,14 @@
 <div id="modalArea" class="modalNoDisp">
   <div class="modalWindow" id="fw_text">
   <img src="images/sprite/waku.png" style="width: 90vw; height: 10vh;"></img>
-  <div class="waku_text" id="waku_txt">テスト<br>テスト</div>
+  <div class="waku_text" id="waku_txt"></div>
   </div>
 </div>
 
 
+<!--ゲームストーリーのスクリプトが読み込まれる場所-->
 <script id="script_loader"></script>
+
 <script src="base.js"></script>
 <link rel="stylesheet" href="style.css">
 <style type="text/css">
